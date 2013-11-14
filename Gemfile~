@@ -40,6 +40,8 @@ gem 'spree', '2.1.0'
 
 gem 'spree_auth_devise', :github => "spree/spree_auth_devise", :branch => "2-1-stable"
 
+gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-1-stable'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
