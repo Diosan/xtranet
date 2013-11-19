@@ -1,5 +1,6 @@
 Unified::Application.routes.draw do
 
+  devise_for :users
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -11,10 +12,12 @@ Unified::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  comfy_route :cms_admin, :path => '/cms'
+  comfy_route :cms_admin, :path => '/cms-admin'
 
   # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', :sitemap => false
+  comfy_route :cms, :path => '/cms', :sitemap => false
+
+  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

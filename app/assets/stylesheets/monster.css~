@@ -1,155 +1,144 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
-	background-image: url(/system/cms/files/files/000/000/001/original/header-bg.png);
-	background-size: 100%;
-	background-repeat: repeat-y;
+#container {
+	display: block;
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	min-width: 100%;
+	width: auto !important;
+	width: 100%;
+}
+
+.background {
+	display: block;
+	background: #006;
+	width: 100%;
+	float: none;
+	clear: both;
+}
+
+.header, .navigation, .content {
+	display: block;
+	margin: 0 auto;
+	background: #666;
+	background-image:url(../images/header-bg.png);
+	width:100%;
 }
 
 .header {
-	background-image: url(/system/cms/files/files/000/000/001/original/header-bg.png);
-	background-size: 100%;
-	background-repeat: repeat-y;
-	width: 100%;
-	margin-top: 10px;
-	overflow: auto;
+    height:80px;
+    min-width: 980px;
 }
 
-.header_left {
-	float:left;
+.navigation {
+	background-image: url(../images/main_menu_bar.png);
+	height:50px;
 }
 
-.header_right {
-	float:right;
-	margin-top: 20px;
-	vertical-align:middle;
+.content {
+	height:800px;	
+	width: 60%;
+	min-width: 500px;
 }
 
 .logo {
-	float:left;
-	margin-left: 50px;
+	background-image: url(../images/logo.png);
+	width: 161px;
+	height: 56px;
+	margin: 12px 10px 12px 50px;
 }
 
-.tagline {
+.header_item {
+	height: 56px;
+	line-height: 56px;
+	margin: 12px;
+}
+
+#tagline, #search_box {
+	
+}
+
+#tagline {
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 13px;
+}
+
+#top_menu {
+}
+
+.float_left {
 	float: left;
-	margin-top:30px;
-	margin-left: 10px;
-	margin-right: 10px;
+	clear: none;
 }
 
-.search {
-	float: left;	
+.float_right {
+	float: right;
+	clear: none;
 }
 
-.search input {
-	display: inline;
+.nav_ul {
+	height: 50px;
+	overflow: hidden;
+	width: 100%;
+	line-height: 60px;
+	text-align: center;
 }
 
-.topmenu {
+.nav_ul li {
+	display: inline-block;
+}
+
+.nav_ul a {
+	display: block;
+	padding: 0 30px;
+	color: #fff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+.nav_ul a:hover {
+	text-decoration: underline;
+}
+
+.topnav_ul {
+	height: 50px;
+	overflow: hidden;
+	width: 100%;
+	line-height: 60px;
+	text-align: center;
+}
+
+.topnav_ul li {
+	display: inline-block;
+}
+
+.topnav_ul a {
+	display: block;
+	padding: 0 30px;
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 12px;
-	float: right;
-	margin-left: 10px;
-	margin-right: 10px;	
-}
-
-.mainmenu {
-	background-image:url(/system/cms/files/files/000/000/003/original/main_menu_bar.png);
-	background-size: 100%;
-	background-repeat:no-repeat;
-	width:100%;
-	height:50px;
-	padding:1px;
-	overflow: auto
-	text-align:center;
-}
-
-.mainmenu ul {
-	display: block;
-	height: 100%;
-	line-height: 50px;
-	list-style-type: none;
-	text-align: center;
-	min-width: 1500px;
-}
-
-.mainmenu li {
-	list-style: none;
-	display: inline-block;
-	float:left;
-
-}
-
-.mainmenu a
-{
-	display:block;
-	color: #FFF;
-	min-width: 200px;
+	font-weight: bold;
 	text-decoration:none;
-	font-weight:bold;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:13px;
-	padding: 0 30px;
+	color: #000;
 }
 
-.mainmenu a:hover {
-	color: #FFF;
-	text-decoration:underline;
+.topnav_ul a:hover {
+	text-decoration: underline;
 }
 
-.welcome {
-	margin-left:50px;
-	margin-right:50px;
+.main {
+	background-image:url(../images/header-bg.png);
+	height: 100%;
 }
-
-.welcome_header {
-	font-size: 25px;
-	font-weight: bold;
-	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
-}
-
-.welcome_text {
-	font-size: 13px;
-	font-weight: bold;
-	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
-}
-
-#home_tabs {
-	width:708px;
-	margin-left: 100px;
-	border-bottom: 1px solid black;
-	border-left: 1px solid black;
-	background: none; 
-}
-
-/*
-.monster_search_button {
-
-	background-image: url(/system/cms/files/files/000/000/005/original/search_button.png);
-	background-size: 100%;
-	background-position:  0px 0px;
-	background-repeat: no-repeat;
-    	height: 15px;
-    	border: 0px;
-
-}
-
-.search_textfield {
-
-	background-image: url(/system/cms/files/files/000/000/006/original/search_textfield.png);
-	background-size: 100%;
-    	background-position:  0px 0px;
-    	background-repeat: no-repeat;
-    	height: 15px;
-    	border: none;
-	outline: none;
-
-}
-*/
