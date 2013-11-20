@@ -1,3 +1,3 @@
 $(function() {
-    $( "#home_tabs" ).tabs();
-  });
+    	$( "#home_tabs" ).tabs();
+});

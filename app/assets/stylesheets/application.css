@@ -10,6 +10,6 @@
  *
  *= require reset
  *= require_self
- *= require monster
  *= require jquery.ui.tabs
+ *= require monster
  */
