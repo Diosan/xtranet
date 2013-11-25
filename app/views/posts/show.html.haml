@@ -1,5 +1,11 @@
 %p#notice= notice
 
+%p
+  %b Title:
+  = @post.title
+%p
+  %b Text:
+  = @post.text
 
 = link_to 'Edit', edit_post_path(@post)
 \|
