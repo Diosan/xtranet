@@ -26,17 +26,25 @@
   	<div id="tabs-1">
   		<div id="featured-products" class="row">
                      <ul>
-                          <% @featured_products.each do |product| %>
+                          <% @featured_products.take(6).each do |product| %>
                                  <%= render 'product', :product => product %>
                           <% end %>
                      </ul>
                 </div>
         </div>
         
-        <div id="tabs-2">
-  		<% Post.all.each do |post| %>
-                      <%= post.title %><br><br>
-                <% end %>
+        <div id="tabs-2">              
+                        <ul class="featured_posts_list">
+  		                <% Post.take(6).each do |post| %>
+  		                    <li>
+  		                        <div class="tile">
+  		                                <%= link_to image_tag(post.image_url(:thumb).to_s, :height => 100), main_app.post_path(post) %><br/><br/>
+                                                <%= link_to post.title, main_app.post_path(post) %>
+                                        </div>
+                                    </li>
+                                <% end %>
+                        </ul>
+                        <div class="clear"><!-- --></div>
         </div>
   					  
   	<div id="tabs-3">

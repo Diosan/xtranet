@@ -242,6 +242,10 @@ ul#menu li:hover ul.sub-menu {
 	margin-top: 100px;
 }
 
+strong {
+        font-weight:bold;
+}
+
 #home_tabs {
         position: relative;
         top: 50px;
@@ -302,10 +306,20 @@ ul#menu li:hover ul.sub-menu {
 -ms-border-radius: 0px;
 -o-border-radius: 0px;
 border-radius: 0px;
-width: 150px;
+width: 175px;
 }
 
 .home_product_list {
         display:inline-block;
 }
 
+.featured_posts_list li {
+    display: inline;
+    float: left;
+}
+
+.tile a {
+    display: block;
+    padding: 10px;
+    margin-right: 5px;
+}

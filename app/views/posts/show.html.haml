@@ -1,11 +1,15 @@
 %p#notice= notice
-
-%p
-  %b Title:
+%br
+.post_title
   = @post.title
-%p
-  %b Text:
-  = @post.text
+%br
+%br
+    
+%div
+  =image_tag @post.image_url(:main).to_s
+
+%div
+  = raw (@post.text)
 
 = link_to 'Edit', edit_post_path(@post)
 \|

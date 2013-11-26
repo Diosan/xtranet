@@ -11,6 +11,8 @@
     = f.text_field :title
   .field
     = f.label :text
-    = f.text_field :text
+    = f.text_area :text, class:"tinymce", rows:40, cols:120
   .actions
     = f.submit 'Save'
+    
+= tinymce

@@ -44,6 +44,10 @@ gem 'tinymce-rails'
 
 #gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-1-stable'
 
+gem 'carrierwave'
+
+gem "rmagick"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
