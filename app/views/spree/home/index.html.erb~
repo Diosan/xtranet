@@ -16,7 +16,7 @@
 </div> <!-- .welcome -->
 
 
-<div id="home_tabs" >
+<div id="posts_tabs" >
 	<ul>
     	        <li><a href="#tabs-1">POS</a></li>
     		<li><a href="#tabs-2">Press Release</a></li>
@@ -38,7 +38,7 @@
   		                <% Post.take(6).each do |post| %>
   		                    <li>
   		                        <div class="tile">
-  		                                <%= link_to image_tag(post.image_url(:thumb).to_s, :height => 100), main_app.post_path(post) %><br/><br/>
+  		                                <%= link_to image_tag(post.image_url(:thumb).to_s, :height => 180), main_app.post_path(post) %><br/><br/>
                                                 <%= link_to post.title, main_app.post_path(post) %>
                                         </div>
                                     </li>

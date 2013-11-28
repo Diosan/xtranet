@@ -5,12 +5,21 @@
 %br
 %br
     
-%div
-  =image_tag @post.image_url(:main).to_s
-
-%div
+%div{:class => "post_page"}
+  = image_tag(@post.image_url(:main).to_s, :class => "post_image")
+  %div{:id => "post_tabs"}
+    %ul
+      %li
+        %a{:href => "#tabs-1"}
+          Attachments
+          = image_tag("/images/attachment-icon.png", :size => "30x30")
+    %div{:id => "tabs-1"}
+      %ul{:class => "post_attachment_list"}
+        - @post.attachments.each do |attachment|
+          %li            
+            = link_to attachment.title, attachment.file_url
+      %div{:class => "clear"} <!-- -->
+%div{:class => "post_text"}
   = raw (@post.text)
+  
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path

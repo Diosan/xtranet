@@ -1,3 +1,5 @@
 class Post < ActiveRecord::Base
-        mount_uploader :image, ImageUploader
+        has_many :attachments
+        accepts_nested_attributes_for :attachments, allow_destroy: true
+        mount_uploader :image, ImageUploader  
 end

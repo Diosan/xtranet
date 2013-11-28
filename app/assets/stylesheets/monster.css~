@@ -256,11 +256,22 @@ strong {
 	border-radius: 0px;
 }
 
+#post_tabs {
+        margin: 0, 25px, 25px, 25px;
+	width: 20%;
+	background: #ede9e8;
+	border: none;
+	border-radius: 0px;
+	float:right;
+	max-width: 450px;
+	max-height: 450px;
+}
+
 #tabs-1, #tabs-2, #tabs-3 {
 	border: 1px solid #000;
 }
 
-.whats_new {
+.whats_new, .post_title {
 	font-family: 'bebas_neueregular', Arial, Helvetica, sans-serif;
 	/*font-family: "HelveticaNeueBlack", "HelveticaNeue-Black", "Helvetica Neue Black", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Arial Black";*/
 	font-size: 25px;
@@ -322,4 +333,38 @@ width: 175px;
     display: block;
     padding: 10px;
     margin-right: 5px;
+}
+
+img.post_image {
+   float: left;
+}
+
+ul.post_attachment_list {
+    margin: 25px;
+    float:center;
+}
+
+.post_text {
+    margin: 0px;
+    margin-top: 50px;
+    padding: 25px;
+    float:right;
+    border: 1px solid #000;
+    min-width: 700px;
+}
+
+.post_page {
+    min-width:1000px;
+}
+
+.button{
+      background: url(/images/navigation_glow.png) repeat-x top left;
+      border: none;
+      padding: 7px;
+      color: #fff;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:13px;
+      font-weight: bold;
+      text-decoration:none;
+      border-radius: 3px;
 }
