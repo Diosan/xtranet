@@ -1,0 +1,21 @@
+%br
+%br
+%br
+%h3 Team
+%br
+%br
+%ul
+  - @team_members.each do |team_member|
+    %ul{:class => "team_list"}
+      %li
+        %h3           
+          = team_member.name
+        %br
+        = link_to image_tag(team_member.image_url(:thumb).to_s, :class => "post_image"), team_member_path(team_member)
+        %br
+        %b Job Title:
+        = team_member.job_title
+        %br
+        %br
+        %b Email:
+        = team_member.email

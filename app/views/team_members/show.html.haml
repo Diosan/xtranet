@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team_member.name
+%p
+  %b Job title:
+  = @team_member.job_title
+%p
+  %b Email:
+  = @team_member.email
+%p
+  %b Image:
+  = @team_member.image
+%p
+  %b Description:
+  = @team_member.description
+%p
+  %b Curriculum vitae:
+  = @team_member.curriculum_vitae
+
+= link_to 'Edit', edit_team_member_path(@team_member)
+\|
+= link_to 'Back', team_members_path

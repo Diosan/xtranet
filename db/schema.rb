@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127191349) do
+ActiveRecord::Schema.define(version: 20131129194017) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20131127191349) do
   end
 
   add_index "attachments", ["post_id"], name: "index_attachments_on_post_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
 
   create_table "cms_blocks", force: true do |t|
     t.integer  "page_id",                     null: false
@@ -181,7 +190,10 @@ ActiveRecord::Schema.define(version: 20131127191349) do
     t.datetime "updated_at"
     t.string   "image"
     t.text     "description"
+    t.integer  "category_id"
   end
+
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
 
   create_table "spree_activators", force: true do |t|
     t.string   "description"
@@ -843,6 +855,17 @@ ActiveRecord::Schema.define(version: 20131127191349) do
     t.string   "description"
     t.boolean  "default_tax",        default: false
     t.integer  "zone_members_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_members", force: true do |t|
+    t.string   "name"
+    t.string   "job_title"
+    t.string   "email"
+    t.string   "image"
+    t.text     "description"
+    t.text     "curriculum_vitae"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

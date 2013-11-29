@@ -186,6 +186,7 @@ ul#menu li:hover ul.sub-menu {
 
 #menu a:hover, ul#menu ul.sub-menu li a:hover {
 	text-decoration: underline;
+	background: url(/images/navigation_glow.png);
 }
 
 .topnav_ul {
@@ -337,6 +338,7 @@ width: 175px;
 
 img.post_image {
    float: left;
+   margin: 25px;
 }
 
 ul.post_attachment_list {
@@ -367,4 +369,50 @@ ul.post_attachment_list {
       font-weight: bold;
       text-decoration:none;
       border-radius: 5px;
+}
+
+h3 {
+    font-family: 'bebas_neueregular', Arial, Helvetica, sans-serif;
+    /*font-family: "HelveticaNeueBlack", "HelveticaNeue-Black", "Helvetica Neue Black", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Arial Black";*/
+    font-size: 25px;
+}
+
+.category_text {
+  margin: 40px;
+  border: 1px;
+  min-width: 500px;
+  min-height: 200px;
+}
+
+.category_posts_list li {
+  display: inline;
+  float: left;
+  max-width: 250px;
+  text-align: center;
+  margin: 25px;
+}
+
+.category_posts_list h3 {
+        color: #c51015;
+        font-size:20px;
+}
+
+.category_posts_item {
+        text-align: justify;
+}
+
+.team_list li {
+  display: inline;
+  float: left;
+  max-width: 210px;
+  text-align: left;
+  border: 1px solid #000;
+  margin:25px;
+  padding:25px;
+}
+
+.team_list h3 {
+        color: #c51015;
+        font-size:20px;
+        margin:25px;
 }

@@ -1,0 +1,22 @@
+%p#notice= notice
+%br
+%br
+%h3
+  = @category.title
+%div{:class => "category_page"}
+  = image_tag(@category.image_url(:thumb).to_s, :class => "post_image")
+  %div{:class => "category_text"}
+    &nbsp;
+    = simple_format @category.text
+  %br
+  %br
+  %ul{:class => "category_posts_list"}
+    - @category.posts.each do | post |
+      %li
+        %div{:class => "category_posts_item"}
+          %h3
+            = post.title
+          = link_to image_tag(post.image_url(:thumb).to_s, :class => "post_image"), post_path(post)
+          = simple_format post.description
+          = link_to("More", post_path(post) )  
+          %div{:class => "clear"} <!-- -->

@@ -1,5 +1,9 @@
 Unified::Application.routes.draw do
 
+  resources :team_members
+
+  resources :categories
+
   devise_for :users
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.

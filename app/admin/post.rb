@@ -3,15 +3,16 @@ ActiveAdmin.register Post do
   sidebar :Attachment, :only => :edit do 
     table_for post.attachments do |attachment|
       column "File" do |attachment|        
-        link_to(:title, attachment.file_url)
+        link_to(attachment.title, attachment.file_url)
       end 
     end
   end
 
 
    form :html => { :enctype => "multipart/form-data" } do |f|
-      f.inputs "Title" do
+      f.inputs "Title and Category" do
         f.input :title
+        f.input :category
       end
       
                                 
@@ -35,6 +36,10 @@ ActiveAdmin.register Post do
     end
     
     show do
+    
+      panel "Category" do
+         Category.find(post.category).title
+      end    
     
       panel "Description" do
         simple_format post.description      
@@ -72,10 +77,8 @@ ActiveAdmin.register Post do
           end
         end
       end
-      column "Description" do |post|
-        p do
+      column "Description" do |post|       
           simple_format post.description
-        end
       end
       column "Image" do |post|
         image_tag(post.image_url(:thumb).to_s)
