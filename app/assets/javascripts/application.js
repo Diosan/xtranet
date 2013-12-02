@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.ui.tabs
-//= require tinymce
 //= require monster

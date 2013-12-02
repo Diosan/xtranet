@@ -42,7 +42,7 @@ gem 'spree_auth_devise', :github => "spree/spree_auth_devise", :branch => "2-1-s
 
 gem 'tinymce-rails'
 
-#gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-1-stable'
+gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-1-stable'
 
 gem 'carrierwave'
 

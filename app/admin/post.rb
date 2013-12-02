@@ -10,9 +10,10 @@ ActiveAdmin.register Post do
 
 
    form :html => { :enctype => "multipart/form-data" } do |f|
-      f.inputs "Title and Category" do
+      f.inputs "Title, Category and Product Range" do
         f.input :title
         f.input :category
+        f.input :product_range
       end
       
                                 
