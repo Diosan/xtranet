@@ -416,3 +416,16 @@ h3 {
         font-size:20px;
         margin:25px;
 }
+
+.taxonomies, .taxonomy_category {
+        border: 1px solid #000;
+        padding: 25px; 
+}
+
+.taxonomy_category {
+        float: right;
+}
+
+.taxonomy {
+        float: left;
+}

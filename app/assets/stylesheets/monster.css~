@@ -389,6 +389,7 @@ h3 {
   float: left;
   max-width: 250px;
   text-align: center;
+  margin: 25px;
 }
 
 .category_posts_list h3 {
@@ -414,4 +415,17 @@ h3 {
         color: #c51015;
         font-size:20px;
         margin:25px;
+}
+
+.taxonomies, .taxonomy_category {
+        border: 1px solid #000;
+        padding: 25px; 
+}
+
+.taxonomy_category {
+        float: right;
+}
+
+.taxonomy {
+        float: right;
 }

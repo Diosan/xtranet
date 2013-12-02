@@ -22,6 +22,10 @@ Unified::Application.routes.draw do
   comfy_route :cms, :path => '/cms', :sitemap => false
 
   resources :posts
+  
+  Spree::Core::Engine.routes.prepend do
+    resources :taxons
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,23 @@
+<ul>
+  <% @taxonomies.each do |taxonomy| %>
+    <li>
+      <div class="taxonomies">
+        <div class="taxonomy">
+          <% taxon = taxonomy.taxons.first %><br/>
+          <%= taxon.name %><br/>
+          <%= image_tag(taxon.icon.url(:normal)) %><br/>
+        </div>
+        <div class="taxonomy_category">
+          <% Category.all.each do |category| %>      
+            <% if Post.where(product_range: taxonomy, category: category).count > 0 %>          
+              <b>
+                <%= link_to category.title, main_app.category_path(category) %>
+              </b>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="clear"><!-- --></div>
+      </div> 
+    </li>
+  <% end %>
+</ul>

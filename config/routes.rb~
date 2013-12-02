@@ -1,5 +1,9 @@
 Unified::Application.routes.draw do
 
+  resources :team_members
+
+  resources :categories
+
   devise_for :users
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -18,6 +22,10 @@ Unified::Application.routes.draw do
   comfy_route :cms, :path => '/cms', :sitemap => false
 
   resources :posts
+  
+  Spree::Core::Engine.routes.prepend do
+    resources :taxons
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
