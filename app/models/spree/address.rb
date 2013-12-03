@@ -14,9 +14,9 @@ module Spree
     alias_attribute :first_name, :firstname
     alias_attribute :last_name, :lastname
     
-    after_initialize do |user|
-      user.first_name = "Diosan"
-    end
+    #after_initialize do |address|
+    #  address.first_name = current_spree_user.address.first_name
+    #end
 
     def self.default
       country = Spree::Country.find(Spree::Config[:default_country_id]) rescue Spree::Country.first

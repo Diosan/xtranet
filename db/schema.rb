@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203194055) do
+ActiveRecord::Schema.define(version: 20131203203034) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -873,12 +873,12 @@ ActiveRecord::Schema.define(version: 20131203194055) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                     default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -886,6 +886,9 @@ ActiveRecord::Schema.define(version: 20131203194055) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "address_id"
+    t.string   "spree_api_key",          limit: 48
+    t.integer  "ship_address_id"
+    t.integer  "bill_address_id"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id"
