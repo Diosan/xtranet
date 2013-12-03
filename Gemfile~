@@ -37,8 +37,10 @@ gem 'comfortable_mexican_sofa'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'spree', '2.1.0'
+#gem 'spree',  github: 'spree/spree', :branch => "master"
 
 gem 'spree_auth_devise', :github => "spree/spree_auth_devise", :branch => "2-1-stable"
+#gem 'spree_auth_devise'
 
 gem 'tinymce-rails'
 
