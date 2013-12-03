@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminUser do
+  menu :parent => "Users"
+
   index do
     column :email
     column :current_sign_in_at

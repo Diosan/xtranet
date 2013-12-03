@@ -12,4 +12,4 @@ Spree.config do |config|
   config.allow_guest_checkout = false
 end
 
-Spree.user_class = "Spree::LegacyUser"
+Spree.user_class = "User"
