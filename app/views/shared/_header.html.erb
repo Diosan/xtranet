@@ -11,8 +11,13 @@
                 	<div id="top_menu" class="header_item float_right">
                     	<ul class="topnav_ul">
 							<li><a href="#">Help</a></li>
-							<li><a href="#">Logout</a></li>
-                        </ul>
+							<li>
+							    <% if defined? destroy_user_session_path %>
+							       <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+                                                            <% else %>
+                                                               <%= link_to "Logout", "/users/sign_out", :method => :delete %>
+                                                            <% end %>
+                                                        </li>                                                            
                     </div>
                 	<div id="search_box" class="header_item float_right">
                     <form action="nada" method="get">

@@ -1,10 +1,19 @@
 Unified::Application.routes.draw do
 
+  # You can have the root of your site routed with "root"
+  root "Spree::Core::Engine#index", controller: 'spree/home'
+
   resources :team_members
 
   resources :categories
 
   devise_for :users
+  
+  #devise_scope :user do
+     #get "/login" => "devise/sessions#new"
+     #get "/logout" => "devise/sessions#destroy"
+  #end
+  
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -30,8 +39,7 @@ Unified::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

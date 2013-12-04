@@ -10,6 +10,7 @@ Spree.config do |config|
   # Uncomment to override the default site name.
   config.site_name = "Angostura Extranet"
   config.allow_guest_checkout = false
+  #config.registration_step = false
 end
 
 Spree.user_class = "User"
