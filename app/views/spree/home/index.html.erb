@@ -1,54 +1,82 @@
-<div class="welcome">
-		    <p class="welcome_header" >
-  			Welcome
-		    </p><!-- .welcome_header -->
-                    <p class="welcome_text" >
-                        Welcome to the Angostura Extranet. This site has been developed to provide its users with an easy to use one-stop shop for all Angostura brand information. The menu on the left navigates information about our products and team, ranging from Brand Guidelines and Technical Specs to details on POS and Promotions. Search the Downloads section to find approved logos and images to use in your activities. Keep checking our site for all the latest Angostura news, product information and activities.
-      			<br><br>
-                        If there is anything you cannot find or would like to see on this site please let us know.
-   			<br /><br /><br /><br />
-			Alison & Brian
-		    </p><!-- .welcome_text -->
-                    
-        	    <div class="whats_new">
-                    	WHAT'S NEW
-                    </div><!-- .whats_new -->
-</div> <!-- .welcome -->
+<section class="float_left content_full">
+ 	 	      		<h1>Welcome</h1>
+                	<p>Welcome to the Angostura Extranet. This site has been developed to provide its users with an easy to use one-stop shop for all Angostura brand information. The menu on the left navigates information about our products and team, ranging from Brand Guidelines and Technical Specs to details on POS and Promotions. Search the Downloads section to find approved logos and images to use in your activities. Keep checking our site for all the latest Angostura news, product information and activities.</p>
+                    <p>If there is anything you cannot find or would like to see on this site please let us know.</p>
+                    <p>Alison &amp; Brian</p>
+</section> <!-- section 1 -->
 
+<div class="hr"><!-- --></div>
 
-<div id="home_tabs" >
-	<ul>
-    	        <li><a href="#tabs-1">POS</a></li>
-    		<li><a href="#tabs-2">Brands</a></li>
-    		<li><a href="#tabs-3">Downloads</a></li>
-        </ul>
-  	
-  	<div id="tabs-1">
-  		<div id="featured-products" class="row">
-                     <ul>
-                          <% @featured_products.take(6).each do |product| %>
-                                 <%= render 'product', :product => product %>
-                          <% end %>
-                     </ul>
-                </div>
-        </div>
-        
-        <div id="tabs-2">              
-                        <ul class="featured_posts_list">
-  		                <% Post.take(6).each do |post| %>
-  		                    <li>
-  		                        <div class="tile">
-  		                                <%= link_to image_tag(post.image_url(:thumb).to_s, :height => 180), main_app.post_path(post) %><br/><br/>
-                                                <%= link_to post.title, main_app.post_path(post) %>
+<section class="float_left content_full">
+                	<article class="float_left half_left margin_b_0">
+                        <h1>WHAT'S NEW</h1>
+
+<div class="float_left home_tabs">
+                            <ul>
+                                <li><a href="#home_tabs_1">POS</a></li>
+                                <li><a href="#home_tabs_2">Brands</a></li>
+                            </ul>
+                            
+                            <div id="home_tabs_1">
+                                  <% i = 0 %>                               
+                                  <% @featured_products.find_in_batches(batch_size: 2) do |products| %>
+                                        <% i += 1 %>
+                                        <div class="float_left product_bounds">
+                                          <% products.each do |product| %>
+                                            <% p = 1 %>
+                                            <% if p.odd? %>
+                                              <div class="float_left half_left product">
+                                                <%= render 'product', :product => product %>
+                                              </div>
+                                            <% else %>
+                                              <div class="float_left half_right product">
+                                                <%= render 'product', :product => product %>
+                                              </div>
+                                            <% end %>
+                                            <% p += 1 %>
+                                          <% end %>
+                                          <div class="half_left product_border"><!-- --></div>
+                                          <div class="half_right product_border product_border_right"><!-- --></div>
                                         </div>
-                                    </li>
-                                <% end %>
-                        </ul>
-                        <div class="clear"><!-- --></div>
-        </div>
-  					  
-  	<div id="tabs-3">
-    		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-                <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-  	</div>
-</div><!-- #home_tabs -->
+                                        <% break if i == 2 %>
+                                  <% end %>
+                                                                     
+                                                                
+                                <div class="clear"><!-- --></div>                               
+                            </div><!-- #home_tabs_1 -->
+                            
+                            <div id="home_tabs_2">
+                            
+                            
+                                <% i = 0 %>                               
+                                  <% ::Spree::Taxonomy.find_in_batches(batch_size: 2) do |taxonomies| %>
+                                        <% i += 1 %>
+                                        <div class="float_left product_bounds">
+                                          <% taxonomies.each do |taxonomy| %>
+                                            <% p = 1 %>
+                                            <% if p.odd? %>
+                                              <div class="float_left half_left product">
+                                                <%= render 'taxonomy', :taxonomy => taxonomy %>
+                                              </div>
+                                            <% else %>
+                                              <div class="float_left half_right product">
+                                                <%= render 'taxonomy', :taxonomy => taxonomy %>
+                                              </div>
+                                            <% end %>
+                                            <% p += 1 %>
+                                          <% end %>
+                                          <div class="half_left product_border"><!-- --></div>
+                                          <div class="half_right product_border product_border_right"><!-- --></div>
+                                        </div>
+                                        <% break if i == 2 %>
+                                  <% end %>
+                                  
+                                          
+                                <div class="clear"><!-- --></div>
+                            
+                            </div><!-- #home_tabs_2 -->
+                            
+                        
+</div><!-- .home_tabs -->
+</section><!-- section 2 -->
+

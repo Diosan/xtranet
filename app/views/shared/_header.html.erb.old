@@ -1,0 +1,106 @@
+    	<div class="background" id="header_grey_background">
+        <div class="background" id="header_gradient_background">
+        	<div class="header">
+            	<div class="float_left">
+                    <div class="logo float_left"><a href="/shop"><img src="http://localhost:3000/images/logo.png"></a></div>
+                	<div id="tagline" class="header_item float_left">
+                    	Please Enjoy Responsibly
+                    </div>
+                </div>
+                <div class="float_right">
+                	<div id="top_menu" class="header_item float_right">
+                    	<ul class="topnav_ul">
+							<li><a href="#">Help</a></li>
+							<li>
+							    <% if defined? destroy_user_session_path %>
+							       <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+                                                            <% else %>
+                                                               <%= link_to "Logout", "/users/sign_out", :method => :delete %>
+                                                            <% end %>
+                                                        </li>                                                            
+                    </div>
+                	<div id="search_box" class="header_item float_right">
+                    <form action="nada" method="get">
+                    	<input type="text" name="dsearch" maxlength="80" />
+	    				<button type="button" class="button">Search</button>
+					</form>
+                    </div>
+                </div>
+                <div class="clear"><!-- --></div>
+    		</div>
+        </div><!-- #header_gradient_background -->    
+        </div><!-- #header_grey_background -->
+        
+        <div class="background" id="navigation_red_background">
+        <div class="background" id="navigation_glow_background">
+      	  <div class="navigation">
+          	<ul id="menu" class="float_left_clear_both">
+        		<li><a href="/shop">HOME</a>
+                </li>
+				<li>
+                	<a href="#">BRANDS</a>
+                    <ul class="sub-menu">
+			            <li>
+			                <a href="/categories/3">Brand Education</a>
+			            </li>
+			            <li>
+			                <a href="/categories/2">Brand Guidelines</a>
+			            </li>
+			            <li>
+			                <a href="http://www.angostura.com/OurBusiness/History">Brand History</a>
+ 			           </li>
+			           <li>
+			                <a href="/team_members">Brand Team</a>
+ 			           </li>
+			        </ul>
+                </li>
+				<li><a href="#">PRODUCTS</a>
+                	<ul class="sub-menu">
+			            <li>
+			                <a href="/shop/taxons/">Product Range</a>
+			            </li>
+			            <li>
+			                <a href="/categories/10">Production Techniques</a>
+			            </li>
+			            <li>
+			                <a href="/categories/11">Technical Specs</a>
+ 			           </li>
+			        </ul>
+                </li>
+            	<li><a href="#">RESOURCES</a>
+                	<ul class="sub-menu">
+			            <li>
+			                <a href="/categories/4">Downloads</a>
+			            </li>
+			            <li>
+			                <a href="/categories/5">On trade promos</a>
+			            </li>
+			            <li>
+			                <a href="/categories/6">Off trade promos</a>
+ 			           </li>
+			           <li>
+			                <a href="/categories/7">Press Releases</a>
+ 			           </li>
+                       <li>
+			                <a href="/categories/8">Presentations</a>
+ 			           </li>
+                       <li>
+			                <a href="/categories/9">Toolkits</a>
+ 			           </li>                       
+			        </ul>
+                </li>
+            	<li><a href="#">EVENTS</a>
+                	<ul class="sub-menu">
+			            <li>
+			                <a href="#">Events Diary</a>
+			            </li>
+			            <li>
+			                <a href="#">Events Gallery</a>
+			            </li>
+			        </ul>
+                </li>
+             	<li><a href="/shop">POS & MERCHANDISE</a></li>
+        	</ul>
+          </div>
+        </div>
+        </div>
