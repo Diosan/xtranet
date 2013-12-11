@@ -1,8 +1,60 @@
+- days = Time.days_in_month(Time.now.month, Time.now.year)
+- first_day = Time.new(Time.now.year, Time.now.month, 1)
+- first_dow = first_day.wday
+- last_day = Time.new(Time.now.year, Time.now.month, days)
+- last_dow = last_day.wday
+
 %section{:class => "float_left content_full"}
   %h1 Calendar
-  - calendar_for @events do |t|
-    - t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
-    - t.day do |day, events|
-      - day.day
-      - events.each do |event|
-        - h(event.name)
+  %h2{:class => "align_center"}
+    %a{:href => "#", :class => "callendar_arrow"} 
+      &lt;
+    December 2013
+    %a{:href => "#", :class => "callendar_arrow"}
+      &gt;
+  %table{:class => "callendar_table"}
+    %thead
+      %tr
+        %th Sunday
+        %th Monday
+        %th Tuesday
+        %th Wednesday
+        %th Thursday
+        %th Friday
+        %th Saturday
+        
+    %tbody
+      %tr
+        - first_dow.times do
+          %td
+            %span{:class => "day_past"}
+              = first_dow.days.ago.day.to_s
+        - d_day = first_dow
+        - (7 - first_dow).times do
+          %td
+            %span{:class => "day"}
+              = (d_day + 1).to_s
+              - d_day += 1
+      - ((days - 7) / 7 ).times do
+        %tr
+          - 7.times do
+            %td
+              %span{:class => "day"}
+                = (d_day + 1).to_s
+                - d_day += 1
+              - Event.where(date: Date.new(first_day.year, first_day.month, d_day).beginning_of_day).each do |event|
+                %span{:class => "event"}
+                  = link_to event.name, event_path(event)
+      %tr
+        - (days - d_day).times do
+          %td
+            %span{:class => "day"}
+              = (d_day + 1).to_s
+              - d_day += 1
+        - i = 1
+        - (7 - last_dow - 1).times do
+          %td
+            %span{:class => "day_past"}
+              = ((i += 1) - 1).to_s
+            
+            
