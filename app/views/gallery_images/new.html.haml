@@ -1,0 +1,10 @@
+- gallery = Gallery.find(params[:gallery_id])
+
+%h1
+  New Gallery Image For "
+  = gallery.title
+  "
+
+= render 'form'
+
+= link_to 'Back', gallery_gallery_images_path(gallery)

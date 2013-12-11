@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%h1= @event.name
+
+%p
+  %b Date:
+  = @event.date
+%p
+  = image_tag @event.image_url(:product)
+%p
+  = @event.text
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

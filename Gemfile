@@ -50,6 +50,14 @@ gem 'carrierwave'
 
 gem "rmagick"
 
+gem 'cancan'
+
+gem 'kaminari'
+
+gem 'jquery-turbolinks'
+
+gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

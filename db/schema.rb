@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203203034) do
+ActiveRecord::Schema.define(version: 20131211162400) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -182,6 +182,44 @@ ActiveRecord::Schema.define(version: 20131203203034) do
 
   add_index "cms_snippets", ["site_id", "identifier"], name: "index_cms_snippets_on_site_id_and_identifier", unique: true
   add_index "cms_snippets", ["site_id", "position"], name: "index_cms_snippets_on_site_id_and_position"
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "date"
+    t.string   "image"
+    t.text     "description"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "galleries", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "country_id"
+    t.integer  "user_id"
+  end
+
+  add_index "galleries", ["country_id"], name: "index_galleries_on_country_id"
+  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id"
+
+  create_table "gallery_images", force: true do |t|
+    t.integer  "gallery_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gallery_images", ["gallery_id"], name: "index_gallery_images_on_gallery_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

@@ -1,0 +1,10 @@
+%h1 
+  Editing "
+  = @gallery_image.title
+  "
+
+= render 'form'
+
+= link_to 'Show', @gallery_image
+
+= link_to 'Back', gallery_images_path

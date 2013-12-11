@@ -1,0 +1,8 @@
+%section{:class => "float_left content_full"}
+  %h1 Calendar
+  - calendar_for @events do |t|
+    - t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
+    - t.day do |day, events|
+      - day.day
+      - events.each do |event|
+        - h(event.name)

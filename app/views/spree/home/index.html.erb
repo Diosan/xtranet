@@ -8,13 +8,14 @@
 <div class="hr"><!-- --></div>
 
 <section class="float_left content_full">
-                	<article class="float_left half_left margin_b_0">
-                        <h1>WHAT'S NEW</h1>
+<article class="float_left half_left margin_b_0">
+<h1>WHAT'S NEW</h1>
 
 <div class="float_left home_tabs">
                             <ul>
                                 <li><a href="#home_tabs_1">POS</a></li>
                                 <li><a href="#home_tabs_2">Brands</a></li>
+                                <li><a href="#home_tabs_2">Downloads</a></li>
                             </ul>
                             
                             <div id="home_tabs_1">
@@ -76,7 +77,46 @@
                             
                             </div><!-- #home_tabs_2 -->
                             
+                            <div id="home_tabs_3">
+                            </div>                            
+                            
+                            
                         
 </div><!-- .home_tabs -->
+</article>
+
+
+<article class="float_left half_right margin_b_0">
+                    	<h1>Event Gallery</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu fermentum odio, nec euismod lorem. Mauris id turpis enim. In iaculis erat cursus ligula feugiat blandit.</p>
+                        
+                                  <% i = 0 %>                               
+                                  <% Gallery.find_in_batches(batch_size: 2) do |galleries| %>
+                                        <% i += 1 %>
+                                        <div class="float_left product_bounds">
+                                          <% galleries.each do |gallery| %>
+                                            <% p = 1 %>
+                                            <% if p.odd? %>
+                                              <div class="float_left half_left product">
+                                                <%= render 'gallery', :gallery => gallery %>
+                                              </div>
+                                            <% else %>
+                                              <div class="float_left half_right product">
+                                                <%= render 'gallery', :gallery => gallery %>
+                                              </div>
+                                            <% end %>
+                                            <% p += 1 %>
+                                          <% end %>
+                                          <div class="half_left product_border"><!-- --></div>
+                                          <div class="half_right product_border product_border_right"><!-- --></div>
+                                        </div>
+                                        <% break if i == 2 %>
+                                  <% end %>
+                            
+                        <div class="clear"><!-- --></div>
+
+</article>
+
+
 </section><!-- section 2 -->
 

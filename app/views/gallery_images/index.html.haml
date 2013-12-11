@@ -1,0 +1,19 @@
+- gallery = @gallery_images.first.gallery
+%section{:class => "float_left content_full"}
+  %h1= gallery.title
+  %p= gallery.text
+  
+  - paginate @gallery_images
+
+  %div{:class => "float_left fifth product_bounds"}
+
+    - @gallery_images.each do |gallery_image|
+      %div{:class => "float_left fifth product_fifth"}
+        = link_to (image_tag gallery_image.image_url(:thumb)), gallery_image_path(gallery_image), :class => "product_image"
+        = link_to gallery_image.title, gallery_image_path(gallery_image), :class => "product_name"
+        - if can? :update, gallery
+          = link_to 'Edit', edit_gallery_image_path(gallery_image), :class => "product_name"
+        - if can? :destroy, gallery
+          = link_to 'Destroy', gallery_image, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if can? :update, gallery
+      = link_to 'New Gallery image', new_gallery_gallery_image_path(gallery)

@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.ui.tabs
+//= require jquery.ui.datepicker
 //= require monster

@@ -1,5 +1,13 @@
 Unified::Application.routes.draw do
 
+  resources :events
+
+  resources :gallery_images
+
+  resources :galleries do
+    resources :gallery_images
+  end
+
   # You can have the root of your site routed with "root"
   root 'spree/home#index'
 

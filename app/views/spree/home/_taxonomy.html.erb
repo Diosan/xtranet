@@ -1,3 +1,3 @@
   <% taxon = taxonomy.taxons.first %>  
-  <%= link_to image_tag(taxon.icon.url(:product)), taxon_path(taxon), :class => "product_image" %>
-  <%= link_to truncate(taxon.name, :length => 50), taxon_path(taxon), :class => 'product-name', :title => taxon.name %>
+  <%= link_to image_tag(taxon.icon.url(:product)), "/shop/t/" + taxon.permalink, :class => "product_image" %>
+  <%= link_to truncate(taxon.name, :length => 50), "/shop/t/" + taxon.permalink, :class => 'product-name', :title => taxon.name %>

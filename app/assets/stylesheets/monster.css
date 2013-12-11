@@ -584,7 +584,7 @@ option {
 	
 }
 
-.product_image img, .product_details_image {
+.product_details_image {
 	display: block;
 	margin: 0;
 	width: 100%;
@@ -595,6 +595,12 @@ option {
 }
 
 .product_image img {
+        display: block;
+	margin: 0;
+	border: 1px solid #C51015;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
         max-width: 240px;
         max-height: 240px; 
 }
