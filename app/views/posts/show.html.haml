@@ -1,23 +1,28 @@
+= link_to @post.category.title + " > ", category_path(@post.category)
+%a{:href => "#"}= @post.title
 %p#notice= notice
-%br
-.post_title
-  = @post.title
-%br
-%br
-    
+%br  
 %div{:class => "post_page"}
-  = image_tag(@post.image_url(:main).to_s, :class => "post_image")
-  %div{:id => "post_tabs"}
-    %ul
-      %li
-        %a{:href => "#tabs-1"}
-          Attachments
-          = image_tag("/images/attachment-icon.png", :size => "30x30")
-    %div{:id => "tabs-1"}
-      %ul{:class => "post_attachment_list"}
-        - @post.attachments.each do |attachment|
-          %li            
-            = link_to attachment.title, attachment.file_url
-      %div{:class => "clear"} <!-- -->
-%div{:class => "post_text"}
-  = raw (@post.text)
+  %h1= @post.title
+  %div{:class => "post_display_area"}
+    = image_tag(@post.image_url(:main).to_s, :class => "post_image")
+    - if @post.attachments.count != 0
+      %div{:id => "post_tabs"}
+        %ul
+          %li
+            %a{:href => "#tabs-1"}
+              Attachments
+              = image_tag("/images/attachment-icon.png", :size => "30x30")
+     
+        %div{:id => "tabs-1"}
+          %ul{:class => "post_attachment_list"}
+            - @post.attachments.each do |attachment|
+              %li= link_to attachment.title, attachment.file_url
+  %p{:align => "justify"}
+    %strong Product Range: 
+    = @post.product_range.name
+  %p{:align => "justify"}
+    %strong Publish Date: 
+    = @post.publish_date
+  %p{:align => "justify"}= simple_format @post.text
+  %div{:class => "clear"} <!-- -->

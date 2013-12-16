@@ -4,9 +4,13 @@ class GalleriesController < InheritedResources::Base
 
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
   
+  def index
+     @galleries = Gallery.all
+  end
+  
   def create
     @gallery = Gallery.new(gallery_params)
-    @gallery = current_user
+    @gallery.user = current_user
     respond_to do |format|
       if @gallery.save
         format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
@@ -18,7 +22,18 @@ class GalleriesController < InheritedResources::Base
     end
   end
   
-  
+  def update
+    
+    respond_to do |format|
+      if @gallery.update(gallery_params)
+        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -27,7 +42,7 @@ class GalleriesController < InheritedResources::Base
     end
     
     def gallery_params
-      params.require(:gallery).permit(:title, :description, :text)
+      params.require(:gallery).permit(:title, :description, :text, :user_id)
     end
   
 end

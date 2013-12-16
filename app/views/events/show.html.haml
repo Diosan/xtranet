@@ -3,13 +3,20 @@
 %h1= @event.name
 
 %p
-  %b Date:
-  = @event.date
+  = image_tag @event.image_url(:product), :class => "event_image"
+%br
+%br
+
 %p
-  = image_tag @event.image_url(:product)
+  %strong Date:
+  = @event.date
 %p
   = @event.text
 
-= link_to 'Edit', edit_event_path(@event)
-\|
+- if can? :update, @event
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+- if can? :destroy, @event
+  = link_to 'Delete', @event, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }
+  \|
 = link_to 'Back', events_path

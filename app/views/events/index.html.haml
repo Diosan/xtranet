@@ -1,17 +1,28 @@
-- days = Time.days_in_month(Time.now.month, Time.now.year)
-- first_day = Time.new(Time.now.year, Time.now.month, 1)
+- offset = (params.has_key?(:offset) ? params[:offset].to_i : 0)
+- date = (params.has_key?(:future) & params.has_key?(:future) ? Time.new(Time.now.year, Time.now.month, Time.now.day)+ offset.months : offset.months.ago)
+- dim = Time.days_in_month(date.month, date.year)
+- first_day = Time.new(date.year, date.month, 1)
 - first_dow = first_day.wday
-- last_day = Time.new(Time.now.year, Time.now.month, days)
+- last_day = Time.new(date.year, date.month, dim)
 - last_dow = last_day.wday
 
 %section{:class => "float_left content_full"}
-  %h1 Calendar
+  %h1 Events Diary
+  = link_to "Create New Event", new_event_path
   %h2{:class => "align_center"}
-    %a{:href => "#", :class => "callendar_arrow"} 
-      &lt;
-    December 2013
-    %a{:href => "#", :class => "callendar_arrow"}
-      &gt;
+    - if params.has_key?(:future) & params.has_key?(:future)
+      %a{:href => "?offset=" + (offset - 1).abs.to_s + "&future=yes", :class => "callendar_arrow"} &lt;        
+    - else
+      %a{:href => "?offset=" + (offset + 1).abs.to_s, :class => "callendar_arrow"} &lt;
+       
+      
+    = Date::MONTHNAMES[date.month]
+    = date.year
+    - if params.has_key?(:future) & params.has_key?(:future)
+      %a{:href => "?offset=" + (offset + 1).to_s + "&future=yes", :class => "callendar_arrow"} &gt;
+    - else
+      %a{:href => "?offset=" + (offset - 1).to_s, :class => "callendar_arrow"} &gt;
+      
   %table{:class => "callendar_table"}
     %thead
       %tr
@@ -25,36 +36,53 @@
         
     %tbody
       %tr
+        - i = 0
         - first_dow.times do
           %td
             %span{:class => "day_past"}
-              = first_dow.days.ago.day.to_s
-        - d_day = first_dow
+              = (first_day - (first_dow - i).days).day.to_s
+              - i += 1            
+        - d_day = 1
         - (7 - first_dow).times do
           %td
             %span{:class => "day"}
-              = (d_day + 1).to_s
+              = d_day.to_s
+              - Event.where(date: Date.new(date.year, date.month, d_day).beginning_of_day).each do |event|
+                %span{:class => "event"}
+                  = link_to event.name, event_path(event)
               - d_day += 1
-      - ((days - 7) / 7 ).times do
+      - if last_dow == 1
+        - if dim > 30 
+          - weeks = ((dim - 7) / 7 ) + 1
+        - else
+          - weeks = (dim - 7) / 7
+      - else 
+        - weeks = (dim - 7) / 7
+      - weeks.times do
         %tr
           - 7.times do
             %td
               %span{:class => "day"}
                 = (d_day + 1).to_s
+                - Event.where(date: Date.new(date.year, date.month, d_day + 1).beginning_of_day).each do |event|
+                  %span{:class => "event"}
+                    = link_to event.name, event_path(event)
                 - d_day += 1
-              - Event.where(date: Date.new(first_day.year, first_day.month, d_day).beginning_of_day).each do |event|
-                %span{:class => "event"}
-                  = link_to event.name, event_path(event)
       %tr
-        - (days - d_day).times do
+        - (dim - d_day).times do
           %td
             %span{:class => "day"}
               = (d_day + 1).to_s
+              - Event.where(date: Date.new(date.year, date.month, d_day + 1).beginning_of_day).each do |event|
+                %span{:class => "event"}
+                  = link_to event.name, event_path(event)
               - d_day += 1
         - i = 1
-        - (7 - last_dow - 1).times do
+        - (7 - last_dow).times do
           %td
             %span{:class => "day_past"}
               = ((i += 1) - 1).to_s
+                
+      
             
             

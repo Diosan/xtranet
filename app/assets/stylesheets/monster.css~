@@ -18,14 +18,16 @@ html {
 	overflow-y: scroll;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	height:100%;
 }
 
 body {
 	background: url(../images/body_gradient.png) repeat-x top left #FDFDFD;
 	color: #404042;
 	line-height: 1.7em;
-	margin: 0;
+	margin: auto;
 	padding: 0;
+	height: 100%;
 }
 
 h1, h2 {
@@ -128,6 +130,11 @@ option {
 	vertical-align: middle;
 }
 
+textarea {
+        border: none;
+	border-color: Transparent;
+}
+
 .btn_wrapper {
 	display: inline-block;
 	height: auto;
@@ -215,11 +222,11 @@ option {
 	min-width: 100%;
 	width:auto !important;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	left: 0px;
 	top: 0px;
 	float:none;
-	overflow: hidden;
+	margin: 0 auto 0;
 }
 
 /*** Containers for segments mainly used for background attachments e.g. header, navigation, etc. 
@@ -238,13 +245,19 @@ option {
 	z-index: 1;
 }
 
-#navigation_red_background {
+#navigation_red_background, #footer_red_background {
 	background: #530500 url(../images/navigation_gradient.png) repeat-x left top;
 	z-index: 3;	
 }
 
-#navigation_glow_background {
+#navigation_glow_background, #footer_glow_background {
 	background: url(../images/navigation_glow.png) no-repeat center top;	
+}
+
+#footer_red_background {
+        position: absolute;
+        bottom: 0;
+        height: 30px;        
 }
 
 #content_background {
@@ -597,7 +610,6 @@ option {
 .product_image img {
         display: block;
 	margin: 0;
-	width: 100%;
 	border: 1px solid #C51015;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -824,4 +836,114 @@ td {
 .cart_delete:hover, .callendar_arrow:hover {
 	text-decoration: none;
 	color: #404042;
+}
+
+.category_posts_item {
+        position: relative;
+        top: 0px;
+        border: 1px solid #b8b8b8;
+        width: 250px;
+        height: 396px;
+        padding: 25px;
+        margin: 0 25px 25px 25px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+        -moz-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+        -webkit-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);    
+}
+
+.post_image {
+       float: left;
+       margin:45px;
+}
+
+.post_display_area {
+       float: left;
+       margin: 25px;
+}
+
+
+#post_tabs {
+       float:left;
+       clear:both;
+}
+
+.team_image 
+{
+       display: block;
+       margin: 0;
+       border: 0px solid #C51015;
+       border-radius: 4px;
+       -moz-border-radius: 4px;
+       -webkit-border-radius: 4px;
+       max-width: 240px;
+       max-height: 308px;
+       margin:25px;
+}
+
+.team_member, .event_image {
+       border: 1px solid #b8b8b8;
+       border-radius: 4px;
+       -moz-border-radius: 4px;
+       -webkit-border-radius: 4px;
+       box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+       -moz-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+       -webkit-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+       float:left;
+       margin:25px;
+           
+}
+
+.team_member {
+       height:390px;
+}
+
+.team_members {
+       max-width: 500px;
+}
+
+.footer_left, .footer_right {
+       padding: 5px;
+       color: #fff;  
+}
+
+.footer_left {
+   float: left;
+}
+
+.footer_right {
+   float: right;
+}
+
+.post_page {
+   border: 1px solid #b8b8b8;
+   border-radius: 4px;
+   padding: 25px;
+}
+
+.category_post_image {
+   width: 200px;
+   min-width: 250px;
+   text-align: center;
+}
+
+.category_posts_header {
+   text-align: center;
+}
+
+.category_posts_images {
+       margin:20px;
+}
+
+.category_posts_images {
+       margin:20px;
+}
+
+.category_posts_list li {
+       vertical-align:text-top;
+       display: inline-block;
+       width: 370px;
+       height: 396px;
 }

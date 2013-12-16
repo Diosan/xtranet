@@ -1,4 +1,8 @@
-$(function() {
+$( document ).ready(function() {
+        if ( $( "#container" ).height() < $( document ).height() ) {
+                $( "#container" ).css({position: 'absolute'});
+        }
+                           
     	$( ".home_tabs" ).tabs();
     	$( "#post_tabs" ).tabs();
     	$( "#event_date" ).datepicker({
@@ -6,5 +10,5 @@ $(function() {
             changeYear: true,
             dateFormat: "yy-mm-dd"
         });
-    	tinyMCE.init({"selector":"textarea.admin_tinymce"});
+    	
 });

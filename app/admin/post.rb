@@ -14,6 +14,7 @@ ActiveAdmin.register Post do
         f.input :title
         f.input :category
         f.input :product_range
+        f.input :publish_date
       end
       
                                 

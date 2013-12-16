@@ -25,7 +25,7 @@ class GalleryImagesController < InheritedResources::Base
     
     respond_to do |format|
       if @gallery_image.update(gallery_image_params)
-        format.html { redirect_to @gallery_image, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @gallery_image, notice: 'Gallery Image was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,22 +1,15 @@
 %p#notice= notice
 
-%p
-  %b Image Title:
+%h1
   = @gallery_image.title
 %p
-  %b Gallery:
+  %strong Gallery:
   = Gallery.find(@gallery_image.gallery).title
+= image_tag @gallery_image.image_url(), :class =>"event_image"
 %p
-  %b Description:
-  = @gallery_image.description
-%p
-  %b Image:
-  = image_tag @gallery_image.image_url(:thumb)
-%p
-  %b Text:
   = @gallery_image.text
 
 - if can? :update, @gallery_image.gallery
-  = link_to 'Edit', edit_gallery_image_path(@gallery_image)
+  = link_to 'Edit', edit_gallery_gallery_image_path(@gallery_image.gallery, @gallery_image)
   
 = link_to 'Back', gallery_gallery_images_path(@gallery_image.gallery)

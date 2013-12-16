@@ -1,9 +1,12 @@
 class EventsController < InheritedResources::Base
+
+  load_and_authorize_resource
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def create
     @event = Event.new(event_params)
-
+    @event.user = current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -37,7 +40,7 @@ class EventsController < InheritedResources::Base
     end
     
     def event_params
-      params.require(:event).permit(:name, :date, :image, :description, :text)
+      params.require(:event).permit(:name, :date, :image, :description, :text, :user_id)
   end
 
 end

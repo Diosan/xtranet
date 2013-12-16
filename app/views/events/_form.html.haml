@@ -8,18 +8,24 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    %span{:class => "input_wrapper"}
+      = f.text_field :name
   .field
     = f.label :date
-    = f.text_field :date, :class => "eventdate"
+    %span{:class => "input_wrapper"}
+      = f.text_field :date, :class => "eventdate"
   .field
     = f.label :image
-    = f.file_field :image
+    %span{:class => "input_wrapper"}
+      = f.file_field :image
   .field
     = f.label :description
-    = f.text_area :description
+    %span{:class => "input_wrapper"}
+      = f.text_area :description
   .field
     = f.label :text
-    = f.text_area :text
+    %span{:class => "input_wrapper"}
+      = f.text_area :text
   .actions
-    = f.submit 'Save'
+    %span{:class => "btn_wrapper"}
+      = f.submit 'Save'

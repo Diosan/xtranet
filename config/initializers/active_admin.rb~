@@ -196,6 +196,12 @@ ActiveAdmin.setup do |config|
   #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
   #     end
   #   end
+  
+  config.namespace :admin do |admin|
+      admin.build_menu do |menu|
+        menu.add :label => "Store", :url => "/shop/admin", :priority => 1
+      end
+  end
 
 
   # == Download Links

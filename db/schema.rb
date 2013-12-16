@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211162400) do
+ActiveRecord::Schema.define(version: 20131216184625) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 20131211162400) do
     t.text     "description"
     t.integer  "category_id"
     t.integer  "product_range_id"
+    t.date     "publish_date"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"

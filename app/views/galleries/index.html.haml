@@ -1,23 +1,16 @@
-%h1 Listing galleries
+%section{:class => "float_left content_full"}
+  %h1 Event Galleries
+  = link_to 'New Gallery', new_gallery_path
+  %br
+  %br
+  %div{:class => "float_left fifth product_bounds"}
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Text
-    %th
-    %th
-    %th
-
-  - @galleries.each do |gallery|
-    %tr
-      %td= gallery.title
-      %td= gallery.description
-      %td= gallery.text
-      %td= link_to 'Show', gallery
-      %td= link_to 'Edit', edit_gallery_path(gallery)
-      %td= link_to 'Destroy', gallery, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Gallery', new_gallery_path
+    - @galleries.each do |gallery|
+      %div{:class => "float_left fifth product_fifth"}
+        - if gallery.gallery_images.count > 0          
+          = link_to (image_tag gallery.gallery_images.first.image_url(:thumb)), gallery_gallery_images_path(gallery), :class => "product_image"
+        %h2= link_to gallery.title, gallery_gallery_images_path(gallery), :class => "product_name"
+        - if can? :update, gallery
+          = link_to 'Edit', edit_gallery_path(gallery), :class => "product_name"
+        - if can? :destroy, gallery
+          = link_to 'Destroy', gallery, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,24 +1,16 @@
 %p#notice= notice
 
+%h1= @team_member.name
 %p
-  %b Name:
-  = @team_member.name
+  = image_tag(@team_member.image_url().to_s, :class => "team_member")
 %p
-  %b Job title:
+  %strong Job title:
   = @team_member.job_title
 %p
-  %b Email:
-  = @team_member.email
+  %strong Email:
+  = link_to @team_member.email, "mailto:" + @team_member.email
 %p
-  %b Image:
-  = @team_member.image
-%p
-  %b Description:
-  = @team_member.description
-%p
-  %b Curriculum vitae:
+  %strong= @team_member.description
+%p{:align => "justify"}
+  %strong Curriculum vitae:
   = @team_member.curriculum_vitae
-
-= link_to 'Edit', edit_team_member_path(@team_member)
-\|
-= link_to 'Back', team_members_path
