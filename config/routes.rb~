@@ -1,5 +1,7 @@
 Unified::Application.routes.draw do
 
+  resources :events
+
   resources :gallery_images
 
   resources :galleries do
