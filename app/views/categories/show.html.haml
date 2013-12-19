@@ -10,7 +10,12 @@
   %br
   %div{:class => "clear"} <!-- -->
 %ul{:class => "category_posts_list"}
-  - @category.posts.each do | post |
+  - if params[:taxonomy].nil?
+    - posts = @category.posts
+  - else
+    - taxonomy = params[:taxonomy]
+    - posts = Post.where(category: @category, product_range_id: taxonomy) 
+  - posts.each do | post |
     %li
       %div{:class => "category_posts_item"}
         %h2{:class => "category_posts_header"}= post.title

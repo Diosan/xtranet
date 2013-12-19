@@ -11,7 +11,7 @@
           <% Category.all.each do |category| %>      
             <% if Post.where(product_range: taxonomy, category: category).count > 0 %>          
               <b>
-                <%= link_to category.title, main_app.category_path(category) %>
+                <%= link_to category.title, main_app.category_path(category) + "?taxonomy=" + taxonomy.id.to_s %>
               </b>
             <% end %>
           <% end %>

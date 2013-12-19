@@ -59,7 +59,9 @@ module Spree
       end
       
       def lowstock_notify
-        StockMailer.stock_low_notification(self).deliver
+        if self.count_on_hand < 50
+           StockMailer.stock_low_notification(self).deliver
+        end
       end
   end
 end
