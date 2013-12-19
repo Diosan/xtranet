@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :product_ranges, join_table: 'product_ranges_users', :class_name => 'Spree::Taxonomy'
   belongs_to :address, :class_name => 'Spree::Address'
   has_and_belongs_to_many :spree_roles, join_table: 'spree_roles_users', :class_name => 'Spree::Role' 
   has_many :spree_orders, :class_name => 'Spree::Order'

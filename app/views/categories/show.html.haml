@@ -16,16 +16,17 @@
     - taxonomy = params[:taxonomy]
     - posts = Post.where(category: @category, product_range_id: taxonomy) 
   - posts.each do | post |
-    %li
-      %div{:class => "category_posts_item"}
-        %h2{:class => "category_posts_header"}= post.title
-        %div{:class => "category_post_image"}
-          = link_to image_tag(post.image_url(:thumb).to_s, :class => "category_posts_images"), post_path(post)
+    - if ProductRangesUser.where(:user_id => current_user, :taxonomy_id => post.product_range).count > 0
+      %li
+        %div{:class => "category_posts_item"}
+          %h2{:class => "category_posts_header"}= post.title
+          %div{:class => "category_post_image"}
+            = link_to image_tag(post.image_url(:thumb).to_s, :class => "category_posts_images"), post_path(post)
+            %div{:class => "clear"} <!-- -->
+          - if !post.product_range.nil?
+            %p{:align => "justify"}
+              %strong Product Range: 
+              = post.product_range.name
+          = simple_format post.description
+          = link_to("More", post_path(post) )
           %div{:class => "clear"} <!-- -->
-        - if !post.product_range.nil?
-          %p{:align => "justify"}
-            %strong Product Range: 
-            = post.product_range.name
-        = simple_format post.description
-        = link_to("More", post_path(post) )
-        %div{:class => "clear"} <!-- -->

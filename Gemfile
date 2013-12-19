@@ -56,6 +56,8 @@ gem 'kaminari'
 
 gem 'jquery-turbolinks'
 
+gem 'habtm_generator', :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

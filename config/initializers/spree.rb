@@ -12,6 +12,7 @@ Spree.config do |config|
   config.allow_guest_checkout = false
   config.allow_ssl_in_staging = true
   config.address_requires_state = true
+  config.default_country_id = 125
 end
 
 Spree.user_class = "User"
