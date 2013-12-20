@@ -4,15 +4,15 @@
       <div class="taxonomies">
         <div class="taxonomy">
           <% taxon = taxonomy.taxons.first %><br/>
-          <%= taxon.name %><br/>
+          <h2><%= taxon.name %></h2><br/>
           <%= image_tag(taxon.icon.url(:normal)) %><br/>
         </div>
         <div class="taxonomy_category">
           <% Category.all.each do |category| %>      
             <% if Post.where(product_range: taxonomy, category: category).count > 0 %>          
-              <b>
+              <h3>
                 <%= link_to category.title, main_app.category_path(category) + "?taxonomy=" + taxonomy.id.to_s %>
-              </b>
+              </h3><br/>
             <% end %>
           <% end %>
         </div>

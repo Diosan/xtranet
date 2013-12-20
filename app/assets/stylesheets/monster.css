@@ -730,6 +730,24 @@ input.cart_input[type="text"] {
 	list-style: lower-roman inside none;
 }
 
+.taxonomies {
+       margin: 20px;
+       border-radius: 4px;
+       border: 1px solid #b8b8b8;
+       padding: 25px;
+       box-shadow: 4px 4px 6px rgba(136, 136, 136, .4);
+       -moz-box-shadow: 4px 4px 6px rgba(136, 136, 136, .4);
+       -webkit-box-shadow: 4px 4px 6px rgba(136, 136, 136, .4); 
+}
+
+.taxonomy_category {
+       float: right;       
+}
+
+.taxonomy {
+       float: left;
+}
+
 .page_information ul {
 	list-style: disc inside none;
 }
@@ -921,6 +939,9 @@ td {
    border: 1px solid #b8b8b8;
    border-radius: 4px;
    padding: 25px;
+   box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+   -moz-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+   -webkit-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
 }
 
 .category_post_image {

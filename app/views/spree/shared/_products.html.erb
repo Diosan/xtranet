@@ -1,0 +1,39 @@
+<section class="float_left content_full">
+<h1>Products</h1>
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= products
+%>
+<% if products.empty? %>
+  <%= Spree.t(:no_products_found) %>
+<% elsif params.key?(:keywords) %>
+  <h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>
+<% end %> 
+
+<% if products.any? %>
+
+  <% i = 0 %>
+  <% products.each do |product| %>
+    <% if i % 4 == 0 %>
+        <div class="float_left product_bounds">   
+    <% end %>
+    <div class="float_left quarter product_quarter" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+    <div class="product-image">
+        <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+      </div>
+      <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
+      <span class="price selling" itemprop="price"><%= display_price(product) %></span>
+    </div>
+    <% if i % 4 == 0 %>
+        </div>   
+    <% end %>
+    <% i += 1 %>
+  <% end %>
+  <% reset_cycle("classes") %>
+
+<% end %>
+
+<% if paginated_products.respond_to?(:num_pages) %>
+  <%= paginate paginated_products %>
+<% end %>
+</section>
