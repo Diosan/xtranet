@@ -5,18 +5,16 @@
                 	<span class="float_left header_item tagline">Please Enjoy Responsibly</span>
                 </div>
                 <div class="float_right">
-                    <form action="" method="get" class="float_left header_item search_box">
+                    <form action="<%= spree.products_path %>" method="get" class="float_left header_item search_box">
                     	<span class="input_wrapper search_wrapper">
   	                    	<input type="text" name="search">
                         </span><!-- 
                      --><span class="btn_wrapper search_btn">
-	    					<button type="button">Search</button>
+	    					<button type="submit">Search</button>
                         </span>
 					</form>
                     <ul class="float_left header_item topnav_ul">
-                        <li><a href="#">Help</a></li><!-- 
-                     --><li><a href="#">Site Admin</a></li><!-- 
-                     --><li><% if defined? destroy_user_session_path %>
+                        <li><% if defined? destroy_user_session_path %>
 							       <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
                                                             <% else %>
                                                                <%= link_to "Logout", "/users/sign_out", :method => :delete %>

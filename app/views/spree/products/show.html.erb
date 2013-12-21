@@ -1,0 +1,21 @@
+<section class="float_left content_full" data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+  <% @body_id = 'product-details' %>
+
+  <h1><%= @product.name %></h1>
+
+  <div class="float_left half_left">
+    <%= render :partial => 'image' %>        
+    <%= render :partial => 'thumbnails' %>
+    <div class="float_left product_details"> 
+    <%= render :partial => 'properties' %>
+    <%= render :partial => 'promotions' %>
+    <%= render :partial => 'cart_form' %>
+    </div>
+ </div>
+ <div class="float_left half_right product_details_content">
+    <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
+    <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+    
+  </div>
+
+</section>

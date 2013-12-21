@@ -17,19 +17,23 @@
     <% if i % 4 == 0 %>
         <div class="float_left product_bounds">   
     <% end %>
-    <div class="float_left quarter product_quarter" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
-    <div class="product-image">
-        <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
-      </div>
-      <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
-      <span class="price selling" itemprop="price"><%= display_price(product) %></span>
-    </div>
-    <% if i % 4 == 0 %>
+            <div class="float_left quarter product_quarter" data-hook="products_list_item_monster" itemscope itemtype="http://schema.org/Product">
+              <div class="product_image">
+                 <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+              </div>
+              <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
+              <span><strong>Code: </strong><%= product.sku %></span>
+              <span class="price selling" itemprop="price"><strong>Price: </strong><%= display_price(product) %></span>
+            </div>
+    <% if (i % 4 == 3) || i == products.count %>
+            <div class="quarter product_border"><!-- --></div>
+            <div class="quarter product_border product_border_quarter_two"><!-- --></div>
+            <div class="quarter product_border product_border_quarter_three"><!-- --></div>
+            <div class="quarter product_border product_border_quarter_four"><!-- --></div>
         </div>   
     <% end %>
     <% i += 1 %>
   <% end %>
-  <% reset_cycle("classes") %>
 
 <% end %>
 

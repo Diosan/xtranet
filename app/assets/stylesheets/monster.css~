@@ -256,8 +256,10 @@ textarea {
 
 #footer_red_background {
         position: absolute;
+        top: 100%;
         bottom: 0;
-        height: 30px;        
+        height: 30px;
+        margin: 30px 0 0 0;        
 }
 
 #content_background {
@@ -672,7 +674,7 @@ input.cart_input[type="text"] {
 }
 
 .cart_add {
-	background: url(assets/jquery-ui/ui-icons_888888_256x240.png) no-repeat scroll 0 -192px rgba(0, 0, 0, 0);
+	background: url(/images/ui-icons_888888_256x240.png) no-repeat scroll 0 -192px rgba(0, 0, 0, 0);
 	display: inline-block;
 	height: 16px;
 	vertical-align: middle;
@@ -680,7 +682,7 @@ input.cart_input[type="text"] {
 }
 
 .cart_add:hover {
-	background-image: url(assets/jquery-ui/ui-icons_222222_256x240.png);
+	background-image: url(/images/ui-icons_222222_256x240.png);
 }
 
 
