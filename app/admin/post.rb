@@ -28,11 +28,11 @@ ActiveAdmin.register Post do
 
             
       f.inputs "Description" do
-        f.input :description, :input_html => { :class => "admin_tinymce", :rows => 5, :cols => 60 }
+        f.input :description, :input_html => { :class => "tinymce", :rows => 5, :cols => 60 }
       end
       
       f.inputs "Content" do
-        f.input :text, :input_html => { :class => "admin_tinymce", :rows => 20, :cols => 60 }
+        f.input :text, :input_html => { :class => "tinymce", :rows => 20, :cols => 60 }
       end
       f.actions
     end

@@ -1,3 +1,5 @@
-ActiveAdmin.register TeamMember do
-        menu :parent => "Posts"
-end
+ActiveAdmin.register_page "Store Admin" do
+    content do
+      para "Hello World"
+    end
+  end

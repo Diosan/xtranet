@@ -12,7 +12,7 @@ module Spree
     end
 
     def spree_login_path
-      main_app.login_path
+      main_app.sign_in_path
     end
 
     def spree_signup_path
@@ -25,4 +25,5 @@ module Spree
   end
 end
 
+Spree::BaseController.send :include, Spree::AuthenticationHelpers
 ApplicationController.send :include, Spree::AuthenticationHelpers

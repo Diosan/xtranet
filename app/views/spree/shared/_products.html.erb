@@ -24,6 +24,8 @@
               <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
               <span><strong>Code: </strong><%= product.sku %></span>
               <span class="price selling" itemprop="price"><strong>Price: </strong><%= display_price(product) %></span>
+              <% @product = product %>
+              <%= render 'cart_form' %>
             </div>
     <% if (i % 4 == 3) || i == products.count %>
             <div class="quarter product_border"><!-- --></div>

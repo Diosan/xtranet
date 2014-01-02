@@ -12,7 +12,7 @@ module Spree
     before_filter :ensure_checkout_allowed
     before_filter :ensure_sufficient_stock_lines
     before_filter :ensure_valid_state
-
+    
     before_filter :associate_user
     before_filter :check_authorization
     before_filter :apply_coupon_code
@@ -128,6 +128,8 @@ module Spree
       # to avoid triggering validations on shipping address
       def before_address
         #@order.bill_address ||= Address.default
+        @order.user = spree_current_user
+	@order.email = current_user.email
         @order.bill_address ||= current_user.address
         if @order.checkout_steps.include? "delivery"
           @order.ship_address ||= Address.default

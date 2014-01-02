@@ -1,0 +1,57 @@
+<% @body_id = 'cart' %>
+
+<h1><%= Spree.t(:shopping_cart) %></h1>
+
+<% if @order.line_items.empty? %>
+
+  <div data-hook="empty_cart">
+    <p><%= Spree.t(:your_cart_is_empty) %></p>
+    <p><%= link_to Spree.t(:continue_shopping), products_path, :class => 'button continue' %></p>
+  </div>
+
+<% else %>
+  <div data-hook="outside_cart_form">
+    <%= form_for @order, :url => update_cart_path, :html => {:id => 'update-cart'} do |order_form| %>
+      <div data-hook="inside_cart_form">
+        <div data-hook="cart_items">
+          <%= render :partial => 'form', :locals => { :order_form => order_form } %>
+        </div>
+
+        <div id="subtotal" data-hook class="align_right">
+          <h5><strong><%= Spree.t(:subtotal) %>: </strong><span class="order-total"><%= @order.display_total.to_html %></span></h5>
+        </div>
+
+        <div class="links columns sixteen alpha omega">
+          <span class = "input_wrapper" >
+          <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
+          </span>
+          <span class = "btn_wrapper" >
+          <%= button_tag :class => 'primary', :id => 'update-button' do %>
+            <%= Spree.t(:update) %>
+          <% end %>
+          </span>
+          <span class = "btn_wrapper" >
+          <%= button_tag :id => 'checkout-link', :name => 'checkout' do %>
+            <%= Spree.t(:checkout) %>
+          <% end %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="empty-cart" data-hook>
+    <%= form_tag empty_cart_path, :method => :put do %>
+      
+        <span class = "btn_wrapper" >       
+        <%= submit_tag Spree.t(:empty_cart), :class => 'button gray' %>
+        </span>
+          <%= Spree.t(:or) %>  
+        <span class = "btn_wrapper" >
+        <%= link_to Spree.t(:continue_shopping), products_path, :class => 'continue button gray' %>
+        </span>
+     
+    <% end %>
+  </div>
+
+<% end %>

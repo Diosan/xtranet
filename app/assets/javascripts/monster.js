@@ -1,7 +1,4 @@
 $( document ).ready(function() {
-        if ( $( "#container" ).height() < $( document ).height() ) {
-                $( "#container" ).css({position: 'absolute'});
-        }
                            
     	$( ".home_tabs" ).tabs();
     	$( "#post_tabs" ).tabs();

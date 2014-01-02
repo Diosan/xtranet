@@ -237,11 +237,9 @@ ActiveRecord::Schema.define(version: 20131219155905) do
   add_index "posts", ["product_range_id"], name: "index_posts_on_product_range_id"
 
   create_table "product_ranges_users", id: false, force: true do |t|
-    t.integer "product_range_id"
+    t.integer "taxonomy_id"
     t.integer "user_id"
   end
-
-  add_index "product_ranges_users", ["product_range_id", "user_id"], name: "product_ranges_users_index", unique: true
 
   create_table "spree_activators", force: true do |t|
     t.string   "description"

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
   accepts_nested_attributes_for :address, allow_destroy: true
   
@@ -17,5 +17,10 @@ class User < ActiveRecord::Base
   def last_incomplete_spree_order
       spree_orders.where.not(state: 'complete').order("updated_at").last
   end
+
+  protected 
+    def password_required? 
+      false 
+    end
   
 end

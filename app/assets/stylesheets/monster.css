@@ -135,6 +135,19 @@ textarea {
 	border-color: Transparent;
 }
 
+a.continue, button.continue {
+        display: inline-block;
+	height: 20px;
+	line-height: normal;
+	overflow: hidden;
+	background: url(../images/btn_bg.png) repeat-x left bottom #AE2012;
+	border-radius: 14px;
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	vertical-align: middle;
+	padding: 3px 15px 3px 15px;
+}
+
 .btn_wrapper {
 	display: inline-block;
 	height: auto;
@@ -222,11 +235,11 @@ textarea {
 	min-width: 100%;
 	width:auto !important;
 	width: 100%;
-	position: relative;
+	position: absolute;
 	left: 0px;
 	top: 0px;
 	float:none;
-	margin: 0 auto 0;
+	margin: 0 auto 25px;
 }
 
 /*** Containers for segments mainly used for background attachments e.g. header, navigation, etc. 
@@ -257,9 +270,8 @@ textarea {
 #footer_red_background {
         position: absolute;
         top: 100%;
-        bottom: 0;
         height: 30px;
-        margin: 0 0 0 0;        
+        margin: 40px 0 0 0;        
 }
 
 #content_background {
@@ -405,6 +417,11 @@ textarea {
 	margin-left: -1px;
 }
 
+.main_menu li {
+        color: #fff;
+}
+
+
 .main_menu li a {
 	display: block;
 	color: #fff;
@@ -431,7 +448,7 @@ textarea {
 /*************************************************************/
 /*** Tabs & UI Mods ********************/
 /*************************************************************/
-.home_tabs {
+.home_tabs, #post_tabs {
     position: relative;
     margin: 0;
 	background: none;
@@ -442,7 +459,11 @@ textarea {
 	padding: 0;
 }
 
-.home_tabs .ui-tabs-nav {
+.home_tabs {
+     width: 100%;		
+}
+
+.home_tabs .ui-tabs-nav, #post_tabs .ui-tabs-nav {
 	padding: 0;
 	background: none;
 	border: none;
@@ -451,7 +472,7 @@ textarea {
 	-webkit-border-radius:0;
 }
 
-.home_tabs .ui-tabs-nav li {
+.home_tabs .ui-tabs-nav li, #post_tabs .ui-tabs-nav li {
 	margin: 0;
 	background: none;
 	border: none;
@@ -460,7 +481,7 @@ textarea {
 	-webkit-border-radius:0;
 }
 
-.home_tabs .ui-tabs-nav li.ui-tabs-active {
+.home_tabs .ui-tabs-nav li.ui-tabs-active, #post_tabs .ui-tabs-nav li.ui-tabs-active {
 	border-left: 1px solid #B8B8B8;
 	border-right: 1px solid #B8B8B8;
 	border-top: 1px solid #B8B8B8;
@@ -468,7 +489,7 @@ textarea {
 	margin-bottom: 0;
 }
 
-.home_tabs .ui-tabs-nav li a {
+.home_tabs .ui-tabs-nav li a, #post_tabs .ui-tabs-nav li a {
 	padding: 0.5em 1.8em;
 	font-family: 'bebas_neueregular', Arial, Helvetica, sans-serif;
 	color: #c51015;
@@ -480,7 +501,7 @@ textarea {
 	-webkit-border-radius:0;
 }
 
-.home_tabs .ui-tabs-panel {
+.home_tabs .ui-tabs-panel, #post_tabs .ui-tabs-panel {
 	border: 1px solid #b8b8b8;
 	border-radius:0;
 	-moz-border-radius:0;
@@ -491,7 +512,7 @@ textarea {
 	font-size: 12px;
 }
 
-.home_tabs .ui-widget-content a {
+.home_tabs .ui-widget-content a, #post_tabs .ui-widget-content a  {
 	color: #C51015;
 }
 
@@ -863,9 +884,9 @@ td {
         top: 0px;
         border: 1px solid #b8b8b8;
         width: 250px;
-        height: 396px;
+        height: 420px;
         padding: 25px;
-        margin: 0 25px 25px 25px;
+        margin: 25px;
         border-radius: 4px;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
@@ -917,7 +938,7 @@ td {
 }
 
 .team_member {
-       height:390px;
+       height:410px;
 }
 
 .team_members {
@@ -935,6 +956,11 @@ td {
 
 .footer_right {
    float: right;
+}
+
+footer {
+   width: 1100px;
+   margin: 0 auto;
 }
 
 .post_page {

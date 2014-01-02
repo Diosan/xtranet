@@ -1,4 +1,4 @@
-%br
+= link_to "Brand Team > ", team_members_path
 %br
 %br
 %h1 Team
@@ -17,3 +17,7 @@
       %br
       %strong Email:
       = link_to team_member.email, "mailto:" + team_member.email
+      %br
+      %span{:style => "text-align:right"}
+        %strong
+          = link_to "More", team_member_path(team_member), :style => "text-align:right"

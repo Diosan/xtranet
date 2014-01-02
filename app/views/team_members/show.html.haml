@@ -1,8 +1,12 @@
+= link_to "Brand Team > ", team_members_path
+= link_to @team_member.name, team_member_path(@team_member)
+%br
 %p#notice= notice
 
 %h1= @team_member.name
 %p
   = image_tag(@team_member.image_url().to_s, :class => "team_member")
+%br
 %p
   %strong Job title:
   = @team_member.job_title

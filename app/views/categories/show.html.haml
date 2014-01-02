@@ -4,8 +4,9 @@
 %br
 %h1= @category.title
 %div{:class => "category_header"}
-  = image_tag(@category.image_url(:thumb).to_s, :class => "post_image")
-  %p= simple_format @category.text
+  - if !@category.image_url().nil?
+    = image_tag(@category.image_url(:thumb).to_s, :class => "post_image")
+  %p= @category.text.html_safe
   %br
   %br
   %div{:class => "clear"} <!-- -->
@@ -30,3 +31,6 @@
           = simple_format post.description
           = link_to("More", post_path(post) )
           %div{:class => "clear"} <!-- -->
+  %br
+  %br
+  %br

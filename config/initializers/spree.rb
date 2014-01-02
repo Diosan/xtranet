@@ -15,6 +15,8 @@ Spree.config do |config|
   config.default_country_id = 125
 end
 
+#Spree::Auth::Config[:registration_step] = false;
+
 Spree.user_class = "User"
 
           Rails.application.config.to_prepare do

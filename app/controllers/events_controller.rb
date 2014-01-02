@@ -41,6 +41,6 @@ class EventsController < InheritedResources::Base
     
     def event_params
       params.require(:event).permit(:name, :date, :image, :description, :text, :user_id)
-  end
+    end
 
 end

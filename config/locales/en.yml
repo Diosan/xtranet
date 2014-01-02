@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  spree:
+    admin_mailer:
+      notify_admin_email:
+        dear_administrator: Dear Administrator,
+        instructions: Please review and retain the following order information for your records.
+        subject: Order Notification

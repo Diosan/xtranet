@@ -4,4 +4,9 @@ class AdminUser < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
+
+  protected 
+    def password_required? 
+      false 
+    end
 end
