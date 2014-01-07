@@ -1,3 +1,6 @@
 #= require active_admin/base
 #= require tinymce-jquery
-#= require monster
+
+tinyMCE.init
+  mode: "textareas"
+

@@ -6,7 +6,7 @@
         <div class="taxonomy">
           <% taxon = taxonomy.taxons.first %><br/>
           <h2><%= taxon.name %></h2><br/>
-          <%= image_tag(taxon.icon.url(:normal)) %><br/>
+          <%= image_tag(taxon.icon.url(:product), :class => "taxonomy_img") %><br/>
         </div>
         <div class="taxonomy_category">
           <% Category.all.each do |category| %>      

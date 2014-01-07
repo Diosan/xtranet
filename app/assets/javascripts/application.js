@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require jquery.ui.tabs
 //= require jquery.ui.datepicker
-//= require monster
 //= require tinymce-jquery
+//= require monster
