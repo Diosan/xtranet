@@ -1,0 +1,2 @@
+module PromotionCategoriesHelper
+end

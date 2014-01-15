@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @promotion_category.name
+%p
+  %b Description:
+  = @promotion_category.description
+
+= link_to 'Edit', edit_promotion_category_path(@promotion_category)
+\|
+= link_to 'Back', promotion_categories_path

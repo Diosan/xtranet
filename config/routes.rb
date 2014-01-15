@@ -1,5 +1,7 @@
 Unified::Application.routes.draw do
 
+  resources :promotion_categories
+
   resources :events
 
   resources :gallery_images

@@ -1,0 +1,21 @@
+%h1 Listing promotion_categories
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @promotion_categories.each do |promotion_category|
+    %tr
+      %td= promotion_category.name
+      %td= promotion_category.description
+      %td= link_to 'Show', promotion_category
+      %td= link_to 'Edit', edit_promotion_category_path(promotion_category)
+      %td= link_to 'Destroy', promotion_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Promotion category', new_promotion_category_path
