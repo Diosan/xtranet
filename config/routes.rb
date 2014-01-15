@@ -15,8 +15,6 @@ Unified::Application.routes.draw do
 
   resources :categories
 
-  #resources :users
-
   devise_for :users
   
   #devise_scope :user do
