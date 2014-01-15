@@ -32,4 +32,9 @@ class ApplicationController < ActionController::Base
         new_user_session_path
   end
   
+  def access_denied(exception)
+       redirect_to root_url, :alert => exception.message
+  end
+
+  
 end

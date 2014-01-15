@@ -12,13 +12,15 @@
 	               <% end %>
                     <ul class="float_left header_item topnav_ul">
                         <% if user_signed_in? %>
-                             <li><%= link_to "Shopping Cart", "/shop/cart" %></li>                         
-                             <li><% if defined? destroy_user_session_path %>
-                                     <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-                                 <% else %>
-                                     <%= link_to "Logout", "/users/sign_out", :method => :delete %>
-                                 <% end %>
-                             </li>
+                             <li><%= link_to "Shopping Cart", "/shop/cart" %></li>
+                             <% if defined? destroy_user_session_path %>
+                                     <li><%= link_to "My Profile", "/users/edit" %></li>
+                                     <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                             <% else %>
+                                     <li><%= link_to "My Profile", "/users/edit" %></li>
+                                     <li><%= link_to "Logout", "/users/sign_out", :method => :delete %></li>
+                             <% end %>
+                             
                         <% else %>
                              <li><%= link_to "Log In", "/users/sign_in" %></li>
                         <% end %>

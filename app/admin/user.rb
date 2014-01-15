@@ -8,7 +8,7 @@ ActiveAdmin.register User do
            f.inputs "Product Ranges" do
               f.input :product_ranges, :as => :check_boxes
            end
-            f.inputs "Roles" do
+           f.inputs "Roles" do
               f.input :spree_roles, :as => :check_boxes
            end
            f.actions

@@ -131,6 +131,7 @@ module Spree
         @order.user = spree_current_user
 	@order.email = current_user.email
         @order.bill_address ||= current_user.address
+        @order.ship_address = @order.bill_address
         if @order.checkout_steps.include? "delivery"
           @order.ship_address ||= Address.default
         end

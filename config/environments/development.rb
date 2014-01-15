@@ -5,7 +5,7 @@ Unified::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_store = :null_store
-  config.cache_classes = false
+  config.cache_classes = true
   #config.reload_classes_only_on_change = true
   #config.watchable_dirs[File.join(config.root, "app/admin")] = ["rb"]
 
@@ -33,5 +33,5 @@ Unified::Application.configure do
   
   config.enable_starttls_auto = true
   
-  #config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => '50.63.174.43' }
 end

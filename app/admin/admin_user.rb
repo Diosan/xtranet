@@ -1,7 +1,6 @@
 ActiveAdmin.register AdminUser do
   menu :parent => "Users"
 
-
   index do
     column :email
     column :current_sign_in_at
@@ -18,13 +17,16 @@ ActiveAdmin.register AdminUser do
       f.input :password
       f.input :password_confirmation
     end
+    f.inputs "Roles" do
+              f.input :roles, :as => :check_boxes
+    end
     f.actions
   end
 
   controller do
 
     def permitted_params
-      params.permit admin_user: [:email, :password, :password_confirmation]
+      params.permit admin_user: [:email, :password, :password_confirmation, role_ids: []]
     end
 
   end

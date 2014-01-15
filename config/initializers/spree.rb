@@ -8,11 +8,15 @@
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
+  config.override_actionmailer_config = true
+  config.mails_from = "xnet.angostura@gmail.com"
   config.site_name = "Angostura Extranet"
   config.allow_guest_checkout = false
   config.allow_ssl_in_staging = true
+  config.allow_ssl_in_development_and_test = false
   config.address_requires_state = true
   config.default_country_id = 125
+  config.enable_mail_delivery = true
 end
 
 #Spree::Auth::Config[:registration_step] = false;

@@ -4,17 +4,17 @@
 %p#notice= notice
 
 %h1= @team_member.name
-%p
+%p{:class => "team_text"}
   = image_tag(@team_member.image_url().to_s, :class => "team_member")
 %br
-%p
+%p{:class => "team_text"}
   %strong Job title:
   = @team_member.job_title
-%p
+%p{:class => "team_text"}
   %strong Email:
   = link_to @team_member.email, "mailto:" + @team_member.email
-%p
+%p{:class => "team_text"}
   %strong= @team_member.description
-%p{:align => "justify"}
+%p{:align => "justify", :class => "team_text"}
   %strong Curriculum vitae:
   = @team_member.curriculum_vitae

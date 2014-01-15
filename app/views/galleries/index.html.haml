@@ -13,4 +13,4 @@
         - if can? :update, gallery
           = link_to 'Edit', edit_gallery_path(gallery), :class => "product_name"
         - if can? :destroy, gallery
-          = link_to 'Destroy', gallery, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to 'Delete', gallery, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }

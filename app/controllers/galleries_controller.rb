@@ -5,7 +5,7 @@ class GalleriesController < InheritedResources::Base
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
   
   def index
-     @galleries = Gallery.all
+     @galleries = Gallery.all.order(created_at: :desc)
   end
   
   def create

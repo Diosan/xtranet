@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :registerable
   accepts_nested_attributes_for :address, allow_destroy: true
   
   def has_spree_role? (role)
