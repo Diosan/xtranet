@@ -7,10 +7,11 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
   
-  <% f.fields_for :address do |address_f| %>
-         <%= f.label :first_name %>
-         <span class = "input_wrapper"><%= address_f.text_field :first_name %></span>
-  <% end %>
+  <div><%= f.label :first_name %><br />
+  <span class = "input_wrapper"><%= f.text_field :first_name %></span></div>
+  
+  <div><%= f.label :last_name %><br />
+  <span class = "input_wrapper"><%= f.text_field :last_name %></span></div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <span class = "input_wrapper"><%= f.password_field :password, :autocomplete => "off" %></span></div>

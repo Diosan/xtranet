@@ -1,0 +1,2 @@
+module PromotionPaymentStatusesHelper
+end

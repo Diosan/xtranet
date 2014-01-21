@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @promotion_payment_status.name
+%p
+  %b Description:
+  = @promotion_payment_status.description
+
+= link_to 'Edit', edit_promotion_payment_status_path(@promotion_payment_status)
+\|
+= link_to 'Back', promotion_payment_statuses_path

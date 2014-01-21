@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113172520) do
+ActiveRecord::Schema.define(version: 20140121192053) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -190,6 +190,16 @@ ActiveRecord::Schema.define(version: 20140113172520) do
   add_index "cms_snippets", ["site_id", "identifier"], name: "index_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "cms_snippets", ["site_id", "position"], name: "index_cms_snippets_on_site_id_and_position", using: :btree
 
+  create_table "documents", force: true do |t|
+    t.string   "title"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "promotion_id"
+  end
+
+  add_index "documents", ["promotion_id"], name: "index_documents_on_promotion_id", using: :btree
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "date"
@@ -247,6 +257,47 @@ ActiveRecord::Schema.define(version: 20140113172520) do
     t.integer "taxonomy_id"
     t.integer "user_id"
   end
+
+  create_table "promotion_categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "promotion_payment_statuses", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "promotions", force: true do |t|
+    t.integer  "region_id"
+    t.integer  "brand_id"
+    t.integer  "promotion_category_id"
+    t.decimal  "budget_amount",               precision: 10, scale: 0
+    t.string   "currency"
+    t.decimal  "amount_requested",            precision: 10, scale: 0
+    t.integer  "split"
+    t.decimal  "amount_reimbursed",           precision: 10, scale: 0
+    t.integer  "promotion_payment_status_id"
+    t.date     "payment_date"
+    t.string   "payment_reference"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "sales_volume",                precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "user_id"
+  end
+
+  add_index "promotions", ["brand_id"], name: "index_promotions_on_brand_id", using: :btree
+  add_index "promotions", ["currency"], name: "index_promotions_on_currency", using: :btree
+  add_index "promotions", ["promotion_category_id"], name: "index_promotions_on_promotion_category_id", using: :btree
+  add_index "promotions", ["region_id"], name: "index_promotions_on_region_id", using: :btree
+  add_index "promotions", ["user_id"], name: "index_promotions_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -947,9 +998,15 @@ ActiveRecord::Schema.define(version: 20140113172520) do
     t.string   "spree_api_key",          limit: 48
     t.integer  "ship_address_id"
     t.integer  "bill_address_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

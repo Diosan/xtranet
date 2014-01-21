@@ -1,0 +1,60 @@
+= simple_nested_form_for @promotion do |f|
+  - if @promotion.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@promotion.errors.count, "error")} prohibited this promotion from being saved:"
+      %ul
+        - @promotion.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :region
+    %span{:class => "input_wrapper"}
+      = f.collection_select(:region_id, Spree::Country.all, :id, :name, :include_blank => "Select a Region" )
+  .field
+    = f.label :brand
+    %span{:class => "input_wrapper"}
+      = f.collection_select(:brand_id, Spree::Taxonomy.all, :id, :name, :include_blank => "Select a Brand" )
+  .field
+    = f.label :promotion_category
+    %span{:class => "input_wrapper"}
+      = f.collection_select(:promotion_category_id, PromotionCategory.all, :id, :name, :include_blank => "Select a Brand" )
+  .field
+    = f.label :currency
+    %span{:class => "input_wrapper"}
+      = f.text_field :currency
+      -#= currency_select(@promotion, :currency)
+  .field
+    = f.label :budget_amount
+    %span{:class => "input_wrapper"}
+      = f.number_field :budget_amount, :in => 0..1000000000
+  .field
+    = f.label :amount_requested
+    %span{:class => "input_wrapper"}
+      = f.number_field :amount_requested, :in => 0..1000000000
+  .field
+    = f.label :start_date
+    %span{:class => "input_wrapper"}
+      = f.text_field :start_date, :class => "eventdate"
+  .field
+    = f.label :end_date
+    %span{:class => "input_wrapper"}
+      = f.text_field :end_date, :class => "eventdate"
+  - if params[:action] == 'edit'
+    .field
+      = f.label :sales_volume
+      %span{:class => "input_wrapper"}
+        = f.number_field :sales_volume, :in => 0..1000000000
+  .field
+    = f.label :description
+    %span{:class => "input_wrapper"}
+      = f.text_area :description, :class => "eventdate"
+  = f.simple_fields_for :documents, @promotion.documents_for_form do |d|
+    = d.label :title
+    %span{:class => "input_wrapper"}
+      = d.text_field :title
+    = d.label :file
+    %span{:class => "input_wrapper"}
+      = d.file_field :file
+  .actions
+    %span{:class => "btn_wrapper"}
+      = f.submit 'Save'

@@ -1,5 +1,11 @@
 Unified::Application.routes.draw do
 
+  resources :documents
+
+  resources :promotions
+
+  resources :promotion_payment_statuses
+
   resources :promotion_categories
 
   resources :events
@@ -16,6 +22,8 @@ Unified::Application.routes.draw do
   resources :team_members
 
   resources :categories
+
+  resources :documents
 
   devise_for :users
   

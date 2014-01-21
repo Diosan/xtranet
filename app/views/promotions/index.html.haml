@@ -1,0 +1,44 @@
+%h1 Listing promotions
+
+%table
+  %tr
+    %th Region
+    %th Brand
+    %th Category
+    %th Currency
+    %th Budget $
+    %th Request $
+    %th Split
+    %th Reimbursed $
+    %th Status
+    %th Payment Date
+    %th Payment Reference
+    %th Start Date
+    %th End Date
+    %th Sales Volume
+    %th
+    %th
+    
+
+  - @promotions.each do |promotion|
+    %tr
+      %td= promotion.region
+      %td= promotion.brand.name
+      %td= promotion.promotion_category.name
+      %td= promotion.currency
+      %td= promotion.budget_amount
+      %td= promotion.amount_requested
+      %td= number_to_percentage((promotion.amount_requested.to_f / promotion.budget_amount) * 100, precision: 0)
+      %td= promotion.amount_reimbursed
+      %td= promotion.promotion_payment_status
+      %td= promotion.payment_date
+      %td= promotion.payment_reference
+      %td= promotion.start_date
+      %td= promotion.end_date
+      %td= promotion.sales_volume
+      %td= link_to 'Show', promotion
+      %td= link_to 'Edit', edit_promotion_path(promotion)
+
+%br
+
+= link_to 'New Promotion', new_promotion_path

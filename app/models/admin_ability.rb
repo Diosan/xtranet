@@ -13,6 +13,12 @@ class AdminAbility
        can :manage, User
        can :read, AdminUser
        can :manage, AdminUser
+       can :read, Promotion
+       can :manage, Promotion
+       can :read, PromotionCategory
+       can :manage, PromotionCategory
+       can :read, PromotionPaymentStatus
+       can :manage, PromotionPaymentStatus
     end
     can :read, Attachment
     can :manage, Attachment

@@ -1,0 +1,1 @@
+json.extract! @promotion, :id, :region_id, :brand_id, :promotion_category_id, :budget_amount, :2}, :currency_id, :split, :amount_reimbursed, :promotion_payment_status, :payment_date, :payment_reference, :created_at, :updated_at

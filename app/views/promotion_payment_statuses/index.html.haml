@@ -1,0 +1,21 @@
+%h1 Listing promotion_payment_statuses
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @promotion_payment_statuses.each do |promotion_payment_status|
+    %tr
+      %td= promotion_payment_status.name
+      %td= promotion_payment_status.description
+      %td= link_to 'Show', promotion_payment_status
+      %td= link_to 'Edit', edit_promotion_payment_status_path(promotion_payment_status)
+      %td= link_to 'Destroy', promotion_payment_status, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Promotion payment status', new_promotion_payment_status_path

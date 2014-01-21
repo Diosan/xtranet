@@ -62,6 +62,13 @@ gem 'mysql2'
 
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
+gem 'money-rails'
+
+gem 'simple_form'
+
+gem "nested_form"
+
+gem "currency_select"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
