@@ -34,8 +34,9 @@ module Unified
     #config.i18n.default_locale = :en
     
     # Set i18n.enforce_available_locales to true
-    config.i18n.enforce_available_locales = false
-    I18n.config.enforce_available_locales = false
+    config.i18n.enforce_available_locales = true
+    config.i18n.default_locale = :en
+    #I18n.config.enforce_available_locales = false
     
   end
 end

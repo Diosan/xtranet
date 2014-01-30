@@ -7,5 +7,17 @@ $( document ).ready(function() {
             changeYear: true,
             dateFormat: "yy-mm-dd"
         });
+        $(".gallery_image, .gallery_image_name").click(function () {
+            $("#image_frame").attr('src', $(this).attr("href"));
+            $("#image_view").dialog({
+               width: 700,
+               height: 950,
+               modal: true,
+               close: function () {
+                 $("#thedialog").attr('src', "about:blank");
+               }
+            });
+            return false;
+        } );
     	
 });

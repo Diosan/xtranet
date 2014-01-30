@@ -36,12 +36,6 @@ Unified::Application.configure do
   config.action_mailer.default_url_options = { :host => '50.63.174.43' }
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.tls => true,
-  config.action_mailer.address => "smtp.gmail.com",
-  config.action_mailer.port => 587,
-  config.action_mailer.domain => "gmail.com",
-  config.action_mailer.authentication => :login,
-  config.action_mailer.user_name => "xnet.angostura",
-  config.action_mailer.password => "Testing1"
+  
   
 end

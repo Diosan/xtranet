@@ -19,6 +19,7 @@ class AdminAbility
        can :manage, PromotionCategory
        can :read, PromotionPaymentStatus
        can :manage, PromotionPaymentStatus
+       can :read, ActiveAdmin::Page, :name => "Store"
     end
     can :read, Attachment
     can :manage, Attachment

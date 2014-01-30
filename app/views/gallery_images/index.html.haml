@@ -1,5 +1,9 @@
 - gallery = Gallery.find(params[:gallery_id])
 %section{:class => "float_left content_full"}
+
+  #image_view{:style => "display:none;" }
+    %iframe{:id => "image_frame", :src => "", :width => 700, :height => 900, :scrolling => "no" }
+
   %h1= gallery.title
   - if can? :update, gallery
     = link_to 'New Gallery image', new_gallery_gallery_image_path(gallery)
@@ -13,10 +17,11 @@
 
     - @gallery_images.each do |gallery_image|
       %div{:class => "float_left fifth product_fifth"}
-        = link_to (image_tag gallery_image.image_url(:thumb)), gallery_image_path(gallery_image), :class => "product_image"
-        %h2= link_to gallery_image.title, gallery_image_path(gallery_image), :class => "product_name"
+        = link_to (image_tag gallery_image.image_url(:thumb)), gallery_image_path(gallery_image), :class => "gallery_image"
+        %br
+        %h2= link_to gallery_image.title, gallery_image_path(gallery_image), :class => "gallery_image_name"
         - if can? :update, gallery
-          = link_to 'Edit', edit_gallery_image_path(gallery_image), :class => "product_name"
+          = link_to 'Edit', edit_gallery_image_path(gallery_image), :class => "gallery_image_name"
         - if can? :destroy, gallery
           = link_to 'Destroy', gallery_image, :class => "product_name", :method => :delete, :data => { :confirm => 'Are you sure?' }
     
