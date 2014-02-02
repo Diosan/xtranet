@@ -9,10 +9,11 @@ namespace :monster do
      puts " "
      puts " "
 
-     CSV.foreach("db/import/angostura_admin_users.csv", headers: true) do |row|
+     CSV.foreach("db/import/angostura_one_user.csv", headers: true) do |row|
      
        password_length = 8
-       password = Devise.friendly_token.first(password_length)
+       #password = Devise.friendly_token.first(password_length)
+       password = "Testing1"
        
        user = User.new(:email => row["email"], :password => password, :password_confirmation => password)
 

@@ -12,6 +12,8 @@ $( document ).ready(function() {
             $("#image_view").dialog({
                width: 700,
                height: 950,
+               hide: 'fold',
+               show: 'blind',
                modal: true,
                close: function () {
                  $("#thedialog").attr('src', "about:blank");

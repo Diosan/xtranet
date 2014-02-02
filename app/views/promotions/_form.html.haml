@@ -49,12 +49,14 @@
     %span{:class => "input_wrapper"}
       = f.text_area :description, :class => "eventdate"
   = f.simple_fields_for :documents, @promotion.documents_for_form do |d|
-    = d.label :title
-    %span{:class => "input_wrapper"}
-      = d.text_field :title
-    = d.label :file
-    %span{:class => "input_wrapper"}
-      = d.file_field :file
+    .field
+      = d.label :file_title
+      %span{:class => "input_wrapper"}
+        = d.text_field :title
+    .field
+      = d.label :file
+      %span{:class => "input_wrapper"}
+        = d.file_field :file
   .actions
     %span{:class => "btn_wrapper"}
       = f.submit 'Save'

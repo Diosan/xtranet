@@ -71,20 +71,48 @@ label {
 	display: inline-block;
 	cursor: pointer;
 	line-height: 32px;
+	vertical-align: top;
 }
 
-input[type="text"], input[type="password"], input[type="email"], select {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="file"], select {
 	background: none;
 	border: none;
 	height: 28px;
-	min-width: 200px;
+	min-width: 350px;
 	padding: 0; 
+	font-family: Arial,Helvetica,sans-serif;
+	outline: none;
+	font-size: 14px;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+        min-width: 0;
+}
+
+.ui-datepicker-header {
+        position: relative;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -8px;
+}
+
+.ui-datepicker-next {
+        left: auto;
+        right: 0;
+}
+
+.ui-datepicker-title {
+        text-align: center;
 }
 
 input[type="checkbox"] {
 	margin: 0;
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: text-top;
 }
 
 label input[type="checkbox"] {
@@ -133,6 +161,11 @@ option {
 textarea {
         border: none;
 	border-color: Transparent;
+	font-family: Arial,Helvetica,sans-serif;
+	outline: none;
+	width: 350px;
+	height: 150px;
+	font-size: 14px;
 }
 
 a.continue, button.continue {
@@ -443,6 +476,38 @@ a.continue, button.continue {
 	margin-bottom: 0;
 }
 
+.alert_bounds {
+        margin-bottom: 30px;
+}
+
+.alert_bounds p {
+        padding: 10px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+	-moz-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+	-webkit-box-shadow: 4px 4px 6px rgba(136, 136, 136, 0.4);
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.alert_bounds .alert {
+        border: 1px solid #248CA4;
+        background: #2D9FBA;
+}
+
+.alert_bounds .warning {
+        border: 1px solid #B23431;
+        background: #CC403C;
+}
+
+.alert_bounds .notice {
+        border: 1px solid #4D9655;
+        background: #57AC61;
+}
 
 
 /*************************************************************/

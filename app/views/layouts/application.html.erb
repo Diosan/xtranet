@@ -12,10 +12,18 @@
 <body>
     <div id="container">
        <%= render 'shared/header' %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
        <div class="background main">
  	       <div class="content">
+ 	                <% if !notice.nil? || !alert.nil?  %>
+ 	                <div class="alert_bounds">
+ 	                     <% if !notice.nil?  %>
+         	                <p class="notice"><%= notice %></p>
+                             <% end %>
+ 	                     <% if !alert.nil?  %>
+                                <p class="alert"><%= alert %></p>
+                             <% end %>
+                        </div> 
+                        <% end %>       
  	                <%= yield %>
  	                <%= yield :templates %>
  	       </div><!-- .content -->

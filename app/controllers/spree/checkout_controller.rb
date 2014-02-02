@@ -64,7 +64,7 @@ module Spree
       def load_order
         @order = current_order
         redirect_to spree.cart_path and return unless @order
-
+        ActionMailer::Base.perform_deliveries = true
         if params[:state]
           redirect_to checkout_state_path(@order.state) if @order.can_go_to_state?(params[:state]) && !skip_state_validation?
           @order.state = params[:state]
@@ -138,6 +138,9 @@ module Spree
       end
 
       def before_delivery
+        if @order.bill_address.nil?
+            @order.bill_address = @order.ship_address
+        end
         return if params[:order].present?
 
         packages = @order.shipments.map { |s| s.to_package }
