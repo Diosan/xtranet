@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1
   = @gallery_image.title
 
@@ -11,6 +9,6 @@
   = @gallery_image.text
 
 - if can? :update, @gallery_image.gallery
-  = link_to 'Edit', edit_gallery_gallery_image_path(@gallery_image.gallery, @gallery_image)
+  =# link_to 'Edit', edit_gallery_gallery_image_path(@gallery_image.gallery, @gallery_image)
   
-= link_to 'Back', gallery_gallery_images_path(@gallery_image.gallery)
+=# link_to 'Back', gallery_gallery_images_path(@gallery_image.gallery)

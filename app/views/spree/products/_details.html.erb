@@ -1,0 +1,7 @@
+<br>
+<span><%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %></span>
+<span><strong>Code: </strong><%= product.sku %></span>
+<span class="price selling" itemprop="price"><strong>Price: </strong> <%= display_price(product) %> </span>
+<% @product = product %>
+<%= render 'cart_form' %>
+<div class="clear"><!-- --></div>

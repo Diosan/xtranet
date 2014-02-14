@@ -7,9 +7,9 @@
     <%= render :partial => 'image' %>        
     <%= render :partial => 'thumbnails' %>
     <div class="float_left product_details"> 
+    <%= render 'spree/products/details', :product => @product %>
     <%= render :partial => 'properties' %>
     <%= render :partial => 'promotions' %>
-    <%= render :partial => 'cart_form' %>
     </div>
  </div>
  <div class="float_left half_right product_details_content">

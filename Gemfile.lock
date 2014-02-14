@@ -167,6 +167,7 @@ GEM
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
     fssm (0.2.10)
+    google_visualr (2.2.0)
     habtm_generator (0.1)
       activerecord (> 3.1)
     haml (4.0.4)
@@ -371,6 +372,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   comfortable_mexican_sofa
   currency_select
+  google_visualr (>= 2.1)
   habtm_generator
   jbuilder (~> 1.2)
   jquery-rails

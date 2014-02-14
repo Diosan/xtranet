@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121192053) do
+ActiveRecord::Schema.define(version: 20140204193634) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -279,7 +279,6 @@ ActiveRecord::Schema.define(version: 20140121192053) do
     t.decimal  "budget_amount",               precision: 10, scale: 0
     t.string   "currency"
     t.decimal  "amount_requested",            precision: 10, scale: 0
-    t.integer  "split"
     t.decimal  "amount_reimbursed",           precision: 10, scale: 0
     t.integer  "promotion_payment_status_id"
     t.date     "payment_date"

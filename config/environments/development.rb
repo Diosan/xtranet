@@ -5,9 +5,10 @@ Unified::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   #config.cache_store = :null_store
-  config.cache_store = :memory_store
+  config.cache_store = :null_store
   config.cache_classes = true
-  config.reload_classes_only_on_change = true
+  config.sass.cache = true 
+  #config.reload_classes_only_on_change = true
   #config.watchable_dirs[File.join(config.root, "app/admin")] = ["rb"]
 
   # Do not eager load code on boot.

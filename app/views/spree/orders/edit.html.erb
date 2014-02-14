@@ -22,14 +22,17 @@
         </div>
 
         <div class="links columns sixteen alpha omega">
-          <span class = "input_wrapper" >
+          <% if false %>          
+          <span class="input_wrapper">
           <%= order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code) %>
           </span>
+          <% end %>
           <span class = "btn_wrapper" >
           <%= button_tag :class => 'primary', :id => 'update-button' do %>
             <%= Spree.t(:update) %>
           <% end %>
           </span>
+         
           <span class = "btn_wrapper" >
           <%= button_tag :id => 'checkout-link', :name => 'checkout' do %>
             <%= Spree.t(:checkout) %>
@@ -46,7 +49,7 @@
         <span class = "btn_wrapper" >       
         <%= submit_tag Spree.t(:empty_cart), :class => 'button gray' %>
         </span>
-          <%= Spree.t(:or) %>  
+          &nbsp; &nbsp; <%= Spree.t(:or) %> &nbsp; &nbsp;  
         <span class = "btn_wrapper" >
         <%= link_to Spree.t(:continue_shopping), products_path, :class => 'continue button gray' %>
         </span>

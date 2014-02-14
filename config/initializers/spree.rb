@@ -14,7 +14,7 @@ Spree.config do |config|
   config.allow_guest_checkout = false
   config.allow_ssl_in_staging = true
   config.allow_ssl_in_development_and_test = false
-  config.address_requires_state = true
+  config.address_requires_state = false
   config.default_country_id = 125
   config.enable_mail_delivery = true
 end

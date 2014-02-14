@@ -1,2 +1,6 @@
-<%= link_to image_tag(post.image_url(:product)), main_app.post_path(post), :class => "product_image" %>
-<%= link_to truncate(post.title, :length => 50), main_app.post_path(post), :class => 'product-name', :title => post.title %>
+<div class="post_front">
+   <%= link_to image_tag(post.image_url(:product)), main_app.post_path(post), :class => "product_image" %>
+</div>
+<span>
+        <%= link_to truncate(post.title, :length => 50), main_app.post_path(post), :class => 'product-name', :title => post.title %>
+</span>

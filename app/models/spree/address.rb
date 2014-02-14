@@ -2,7 +2,7 @@ module Spree
   class Address < ActiveRecord::Base
     belongs_to :country, class_name: "Spree::Country"
     belongs_to :state, class_name: "Spree::State"
-
+    has_many :users, class_name: "User"
     has_many :shipments
 
     validates :firstname, :lastname, :address1, :city, :country, presence: true

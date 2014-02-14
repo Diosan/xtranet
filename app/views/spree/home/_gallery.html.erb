@@ -1,5 +1,9 @@
   <% gallery %>
-  <% if gallery.gallery_images.count > 0 %> 
-    <%= link_to image_tag(gallery.gallery_images.offset(rand(gallery.gallery_images.count)).first.image_url(:product).to_s), main_app.gallery_gallery_images_path(gallery), :class => "product_image" %>
+  <% if gallery.gallery_images.count > 0 %>
+    <div class="gallery_front">
+       <%= link_to image_tag(gallery.gallery_images.offset(rand(gallery.gallery_images.count)).first.image_url(:product).to_s), main_app.gallery_gallery_images_path(gallery), :class => "product_image" %>
+    </div>
   <% end %>
-  <%= link_to truncate(gallery.title, :length => 50), main_app.gallery_gallery_images_path(gallery), :class => 'product-name', :title => gallery.title %>
+  <span class="gallery_name">
+      <%= link_to truncate(gallery.title, :length => 50), main_app.gallery_gallery_images_path(gallery), :title => gallery.title %>
+  </span>

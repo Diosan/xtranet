@@ -70,6 +70,8 @@ gem "nested_form"
 
 gem "currency_select"
 
+gem "google_visualr", ">= 2.1"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

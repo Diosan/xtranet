@@ -7,8 +7,21 @@ class Promotion < ActiveRecord::Base
   has_many :documents, :dependent => :destroy
   belongs_to :user
   accepts_nested_attributes_for :documents
+  #before_create :make_processing
+  after_save :notify_admins
+  
   def documents_for_form
     collection = documents.where(promotion_id: id)
     collection.any? ? collection : documents.build
-  end  
+  end 
+  
+  def make_processing
+    self.promotion_payment_status = PromotionPaymentStatus.find(2)
+  end
+  
+  def notify_admins
+     ActionMailer::Base.perform_deliveries = true
+     ActionMailer::Base.raise_delivery_errors = true
+     UserMailer.promotion_notification(self).deliver
+  end
 end

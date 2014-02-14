@@ -1,4 +1,6 @@
-  <%= link_to product_image(product), product, :class => "product_image" %>
+  <div class="post_front">
+     <%= link_to product_image(product), product, :class => "product_image" %>
+  </div>
   <%= link_to truncate(product.name, :length => 50), product, :class => 'product-name', :title => product.name %>
   <span><strong>Code: </strong><%= product.sku %></span>
   <span><strong>Product: </strong><%= product.display_price %></span>

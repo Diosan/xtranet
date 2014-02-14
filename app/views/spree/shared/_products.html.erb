@@ -18,14 +18,10 @@
         <div class="float_left product_bounds">   
     <% end %>
             <div class="float_left quarter product_quarter" data-hook="products_list_item_monster" itemscope itemtype="http://schema.org/Product">
-              <div class="product_image">
-                 <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+              <div class="product_box">
+                 <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url', :class => "pview" %>
               </div>
-              <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
-              <span><strong>Code: </strong><%= product.sku %></span>
-              <span class="price selling" itemprop="price"><strong>Price: </strong><%= display_price(product) %></span>
-              <% @product = product %>
-              <%= render 'cart_form' %>
+              <%= render 'spree/products/details', :product => product %>
             </div>
     <% if (i % 4 == 3) || i == products.count %>
             <div class="quarter product_border"><!-- --></div>

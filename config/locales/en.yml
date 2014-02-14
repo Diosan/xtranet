@@ -27,3 +27,8 @@ en:
         dear_administrator: Dear Administrator,
         instructions: Please review and retain the following order information for your records.
         subject: Order Notification
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      welcome: "Welcome to your Unified Angostura Extranet Interface"
+      call_to_action: "You can view the extranet analytics below or use the menu above to navigate and view/edit/ create various resources"

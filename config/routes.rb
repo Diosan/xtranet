@@ -26,6 +26,7 @@ Unified::Application.routes.draw do
   resources :documents
 
   devise_for :users
+  #, :controllers => { :registrations => "registrations" }
   
   #devise_scope :user do
      #get "/login" => "devise/sessions#new"
