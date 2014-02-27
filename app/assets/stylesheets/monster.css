@@ -1115,12 +1115,17 @@ footer {
        margin:20px;
 }
 
+.category_posts_list {
+       min-width: 1200px;
+       
+}
+
 .category_posts_list li {
        vertical-align:text-top;
        display: inline-block;
        width: 340px;
        height: 396px;
-       margin: 25px 0 70px 0;
+       margin: 25px 29px 70px 29px;
 }
 
 #line_items td {

@@ -18,6 +18,9 @@ ActiveAdmin.register Promotion do
         row :created_at
         row :description        
       end
+      table_for promotion.documents do         
+            column("File"){|document| link_to(document.title, document.file.to_s ) }
+      end
       active_admin_comments
   end
   

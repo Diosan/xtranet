@@ -6,7 +6,7 @@
 %div{:class => "post_page"}
   %h1= @post.title
   %div{:class => "post_display_area"}
-    -if @post.image.nil?
+    -if ! @post.image.nil?
       = image_tag(@post.image_url(:main).to_s, :class => "post_image")
     - if @post.attachments.count != 0
       %div{:id => "post_tabs"}
