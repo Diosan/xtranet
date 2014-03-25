@@ -24,6 +24,12 @@ ActiveAdmin.register Promotion do
       active_admin_comments
   end
   
+  form do |f|
+       f.inputs :brand, :promotion_category, :promotion_payment_status, :region
+       f.inputs :user, :budget_amount, :currency, :amount_requested, :amount_reimbursed, :payment_date, :payment_reference, :start_date, :end_date, :sales_volume 
+       f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

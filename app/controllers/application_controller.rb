@@ -46,4 +46,12 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, address_attributes: [:first_name, :last_name, :country_id, :state_id, :city, :address1, :address2, :zipcode, :phone, :alternative_phone, :company ], :product_range_ids => [], :spree_role_ids => []) }
   end
   
+  def complete_profile
+    if current_user.completed_profile?
+      redirect_to the_path_after_log_in
+    else
+      redirect_to edit_profile_path, error: "Please update your profile."
+    end
+  end
+  
 end

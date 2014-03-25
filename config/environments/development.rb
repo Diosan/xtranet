@@ -35,7 +35,7 @@ Unified::Application.configure do
   
   config.enable_starttls_auto = true
   
-  config.action_mailer.default_url_options = { :host => '50.63.174.43' }
+  config.action_mailer.default_url_options = { :host => 'extranet.angostura.com' }
   
   config.action_mailer.delivery_method = :smtp
   

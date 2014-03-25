@@ -708,7 +708,6 @@ a.continue, button.continue {
 .product_details_image {
 	display: block;
 	margin: 0;
-	width: 100%;
 	border: 1px solid #C51015;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -1010,7 +1009,8 @@ td {
 
 .post_image {
        float: left;
-       margin:45px;
+       margin:0px 45px 0px 0px;
+       background-color: #fff;
 }
 
 .post_display_area {

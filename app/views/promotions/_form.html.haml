@@ -9,7 +9,7 @@
   .field
     = f.label :region
     %span{:class => "input_wrapper"}
-      = f.collection_select(:region_id, Spree::Country.all, :id, :name, :include_blank => "Select a Region" )
+      = f.collection_select(:region_id, Spree::Country.all.order("name"), :id, :name, :include_blank => "Select a Region" )
   .field
     = f.label :brand
     %span{:class => "input_wrapper"}

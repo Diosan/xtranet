@@ -14,7 +14,7 @@
   %strong Email:
   = link_to @team_member.email, "mailto:" + @team_member.email
 %p{:class => "team_text"}
-  %strong= @team_member.description
+  %strong= simple_format @team_member.description
 %p{:align => "justify", :class => "team_text"}
   %strong Curriculum vitae:
   = @team_member.curriculum_vitae
